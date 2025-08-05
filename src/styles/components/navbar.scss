@@ -1,0 +1,72 @@
+.navbar-container {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  transition: top 0.3s ease-in-out;
+  z-index: 100;
+  &.scrolled {
+    top: 0;
+    background: rgba($white, 0.025);
+    box-shadow: 0 4px 30px rgba($shadow, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: top 0.3s ease-in-out;
+    &.on-dark {
+      .logo {
+        color: $text-light;
+        & span {
+          color: $yellow-dark;
+        }
+        &:hover {
+          color: $yellow-dark;
+          & span {
+            color: $text-light;
+          }
+        }
+      }
+      & a {
+        color: $text-light;
+      }
+    }
+  }
+  .left,
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 100px;
+    @media (max-width: $layout-breakpoint-small) {
+      margin: 0 25px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 2em;
+      font-family: $font-heavy;
+      letter-spacing: 0.05em;
+      transition: 0.3s ease-in-out;
+      & span {
+        color: $yellow-dark;
+        transition: 0.3s ease-in-out;
+      }
+      &:hover {
+        opacity: 0.88;
+        transition: 0.3s ease-in-out;
+        color: $grey-dark;
+        & span {
+          color: $text;
+          transition: 0.3s ease-in-out;
+        }
+      }
+    }
+    & a {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

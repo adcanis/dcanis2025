@@ -1,0 +1,9 @@
+.work-comp-container {
+  @include page-container-default();
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100dvh;
+  background: $background-light;
+}

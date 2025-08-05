@@ -1,0 +1,39 @@
+// Abstracts
+@import "./abstracts/breakpoints.scss";
+@import "./abstracts/colors.scss";
+@import "./abstracts/mixins.scss";
+
+// Base
+@import "./base/defaults.scss";
+@import "./base/normalize.scss";
+
+// Typography
+@import "./typography/typography.scss";
+
+// Locomotive
+@import "locomotive-scroll/dist/locomotive-scroll.css";
+
+// Toastify
+@import "react-toastify/dist/ReactToastify.css";
+
+// Components
+@import "./components/about.scss";
+@import "./components/archives.scss";
+@import "./components/awards.scss";
+@import "./components/capabilities.scss";
+@import "./components/faq.scss";
+@import "./components/footer.scss";
+@import "./components/hero.scss";
+@import "./components/loader.scss";
+@import "./components/navbar.scss";
+@import "./components/pageTransition.scss";
+@import "./components/scrollDownBtn.scss";
+@import "./components/work.scss";
+
+// Pages
+@import "./pages/_default.scss";
+@import "./pages/about.scss";
+@import "./pages/contact.scss";
+@import "./pages/privacy.scss";
+@import "./pages/terms.scss";
+@import "./pages/work.scss";

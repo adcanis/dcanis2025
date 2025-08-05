@@ -1,0 +1,4 @@
+.home-content {
+  @include inner-container-default(100%);
+  flex-direction: column;
+}

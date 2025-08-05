@@ -1,0 +1,58 @@
+.capabilities-container {
+  @include page-container-default();
+  background: linear-gradient($background-grey-dark, $background-dark);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @media (max-width: $layout-breakpoint-xsmall) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .capabilities-content {
+    @include inner-container-default(90%);
+    flex-direction: column;
+    min-height: 50dvh;
+    .capabilities-title {
+      font-size: 5em;
+      color: $text-light;
+      @media (max-width: $layout-breakpoint-xsmall) {
+        font-size: 3em;
+      }
+    }
+    .capabilities-list {
+      display: flex;
+      flex-direction: column;
+      .capability-item {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 10px;
+        color: $text-light;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          grid-template-columns: 1fr;
+          grid-gap: 0;
+        }
+        .capability-title {
+          font-size: 2em;
+          @media (max-width: $layout-breakpoint-xsmall) {
+            font-size: 1.25em;
+          }
+        }
+        .capability-options {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          font-size: 1.5em;
+          color: $grey-dark;
+          @media (max-width: $layout-breakpoint-xsmall) {
+            font-size: 1.2em;
+            padding: 0;
+          }
+          & li {
+            text-decoration: none;
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+}

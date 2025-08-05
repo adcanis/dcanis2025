@@ -1,0 +1,45 @@
+.archives-container {
+  @include page-container-default();
+  background: linear-gradient($background-grey-dark, $background-dark);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @media (max-width: $layout-breakpoint-xsmall) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .archives-content {
+    @include inner-container-default(90%);
+    flex-direction: column;
+    min-height: 50dvh;
+    @media (max-width: $layout-breakpoint-xsmall) {
+      @include inner-container-default(85%);
+    }
+    .archives-title {
+      font-size: 5em;
+      color: $text-light;
+      @media (max-width: $layout-breakpoint-xsmall) {
+        font-size: 3em;
+      }
+    }
+    .archives-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      @media (max-width: $layout-breakpoint-xsmall) {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+      }
+      .archive-item {
+        display: flex;
+        align-items: center;
+        .archive-title {
+          font-size: 2em;
+          color: $text-light;
+          opacity: 0.8;
+          @media (max-width: $layout-breakpoint-xsmall) {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+}

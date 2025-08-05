@@ -1,0 +1,168 @@
+.contact-container {
+  @include page-container-default();
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 88dvh;
+    background: linear-gradient($white, $background-light);
+    z-index: -1;
+    @media (max-width: $layout-breakpoint-xsmall) {
+      height: 66dvh;
+    }
+  }
+  .contact-content {
+    @include inner-container-default(90%);
+    flex-direction: column;
+    min-height: 100dvh;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    .hero {
+      display: flex;
+      justify-content: center;
+      height: 88dvh;
+      @media (max-width: $layout-breakpoint-xsmall) {
+        height: 66dvh;
+      }
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 60%;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          width: 100%;
+        }
+        & h1 {
+          font-size: 5em;
+          margin-top: 0;
+          @media (max-width: $layout-breakpoint-xsmall) {
+            font-size: 3em;
+          }
+        }
+        & p {
+          font-size: 2.25em;
+          margin: 0;
+          width: 60%;
+          @media (max-width: $layout-breakpoint-xsmall) {
+            width: 100%;
+            font-size: 1.5em;
+          }
+        }
+      }
+      .right {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        height: 100%;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          display: none;
+        }
+        .hero-transition-container {
+          position: absolute;
+          min-height: 100dvh;
+          max-height: 100dvh;
+          top: 33%;
+          overflow: hidden;
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      min-height: 100dvh;
+      width: 50%;
+      @media (max-width: $layout-breakpoint-xsmall) {
+        width: 100%;
+      }
+      & p,
+      input,
+      label,
+      textarea {
+        font-size: 1.25em;
+      }
+      & input,
+      textarea {
+        border: none;
+        padding: 1em 0em 1em 0em;
+        background: transparent !important;
+        border-bottom: 1px solid rgba($shadow, 0.15);
+        margin: 25px 0;
+      }
+      .budget-btns-container {
+        display: flex;
+        align-items: center;
+        margin: 50px 0;
+        & button {
+          margin-right: 20px;
+        }
+      }
+      .form-submit {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        margin-top: 100px;
+        border-bottom: 1px solid $light;
+        & button {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 200px;
+          width: 200px;
+          top: -100px;
+          right: -10px;
+          outline: none;
+          background: linear-gradient(
+            to top left,
+            $background-dark,
+            $background-grey-dark
+          );
+          color: $white;
+          border-radius: 50%;
+          z-index: 1;
+          transition: 0.4s ease-in-out;
+          @media (max-width: $layout-breakpoint-xsmall) {
+            height: 150px;
+            width: 150px;
+            top: -75px;
+            right: -10px;
+          }
+          &:hover {
+            cursor: pointer;
+            background: linear-gradient(to top left, $yellow-dark, $yellow);
+            color: $text;
+            transition: 0.4s ease-in-out;
+            transform: scale(1.1);
+          }
+          & p {
+            display: flex;
+            align-items: center;
+            font-size: 1.5em;
+            @media (max-width: $layout-breakpoint-xsmall) {
+              font-size: 1em;
+            }
+            & span {
+              font-size: 1.25em;
+              margin: 5px 0px 0px 5px;
+              transform: rotate(-20deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}
