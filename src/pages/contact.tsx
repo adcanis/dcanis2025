@@ -24,7 +24,7 @@ const Contact = () => {
     if (!scrollDirection) return;
 
     controls.start({
-      scale: scrollDirection === "down" ? 1.1 : 0.98,
+      scale: scrollDirection === "down" ? 1.05 : 0.98,
       transition: { duration: 0.35, ease: "easeOut" },
     });
   }, [controls, scrollDirection]);
