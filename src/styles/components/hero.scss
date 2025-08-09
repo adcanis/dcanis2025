@@ -26,16 +26,16 @@
       align-items: center;
       height: fit-content;
       width: 90%;
-      margin-top: 100px;
+      margin-top: 150px;
     }
     & h1 {
-      font-size: 5rem;
+      font-size: 7rem;
       letter-spacing: 0.1em;
       color: $grey-dark;
       text-shadow: 1px 1px 1px $background-light;
       font-weight: 900;
       @media (max-width: $layout-breakpoint-xsmall) {
-        font-size: 3rem;
+        font-size: 3em;
         margin: 0;
       }
     }
@@ -45,15 +45,15 @@
     top: 64px;
     left: 15%;
     width: 100%;
-    height: 95%;
-    opacity: 0.8;
+    height: 100%;
+    opacity: 0.25;
     z-index: 0;
     @media (max-width: $layout-breakpoint-xsmall) {
       position: unset;
       order: 2;
-      width: 120%;
-      // height: 50dvh;
-      margin-top: -100px;
+      width: 115%;
+      opacity: 0.15;
+      margin-top: -300px;
     }
   }
 }

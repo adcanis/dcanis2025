@@ -1,17 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { CapData } from "./lib/CapData";
 
 const Capabilities = () => {
   return (
-    <motion.div
-      className="capabilities-container"
-      data-theme="dark"
-      initial={{ opacity: 0, z: 100 }}
-      whileInView={{ opacity: 1, z: 0 }}
-      exit={{ opacity: 0, z: -100 }}
-      transition={{ duration: 0.5, delay: 0.15 }}
-    >
+    <div className="capabilities-container" data-theme="dark">
       <div className="capabilities-content">
         <h1 className="capabilities-title">Capabilities</h1>
         <div className="capabilities-list">
@@ -29,7 +21,7 @@ const Capabilities = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

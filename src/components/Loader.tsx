@@ -1,43 +1,55 @@
 "use client";
 import React from "react";
 import gsap from "gsap";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import LoadingAnimation from "@/assets/lottie/loading.json";
 
 type LoadingProps = {
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const percents = ["", "10", "25", "33", "50", "66", "90", "100"];
-
 const Loader = ({ setIsLoading }: LoadingProps) => {
-  const [percent, setPercent] = React.useState("");
-  const [showHello, setShowHello] = React.useState(false);
-
   const loaderRef = React.useRef<HTMLDivElement>(null);
-  const animRef = React.useRef<HTMLDivElement>(null);
-  const helloRef = React.useRef<HTMLDivElement>(null);
+  const animWrapRef = React.useRef<HTMLDivElement>(null);
+  const lottieRef = React.useRef<LottieRefCurrentProps>(null);
 
   React.useEffect(() => {
-    percents.forEach((p, i) => {
-      setTimeout(() => setPercent(p), i * 200);
-    });
+    if (lottieRef.current) {
+      lottieRef.current.setSpeed(1.5);
+    }
+  }, []);
 
-    const showHelloDelay = percents.length * 200 + 250;
-    const finishDelay = showHelloDelay + 1200;
+  const runExit = React.useCallback(() => {
+    if (!loaderRef.current) {
+      setIsLoading(false);
+      return;
+    }
 
-    const helloTimer = setTimeout(() => {
-      setShowHello(true);
-    }, showHelloDelay);
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const exitTimer = setTimeout(() => {
+    if (prefersReduced) {
+      gsap.set(loaderRef.current, { yPercent: -100 });
+      setIsLoading(false);
+      return;
+    }
+
+    const ctx = gsap.context(() => {
       const tl = gsap.timeline({
+        defaults: { ease: "power2.inOut" },
         onComplete: () => setIsLoading(false),
       });
+
+      if (animWrapRef.current) {
+        tl.to(animWrapRef.current, { opacity: 0, duration: 0.25 });
+      }
 
       tl.to(loaderRef.current, {
         borderBottomLeftRadius: "50% 50%",
         borderBottomRightRadius: "50% 50%",
         duration: 0.5,
-        ease: "power2.inOut",
       }).to(
         loaderRef.current,
         {
@@ -48,46 +60,28 @@ const Loader = ({ setIsLoading }: LoadingProps) => {
         },
         "-=0.3"
       );
-    }, finishDelay);
+    }, loaderRef);
 
-    return () => {
-      clearTimeout(helloTimer);
-      clearTimeout(exitTimer);
-    };
+    return () => ctx.revert();
   }, [setIsLoading]);
 
-  React.useLayoutEffect(() => {
-    if (animRef.current) {
-      gsap.fromTo(
-        animRef.current,
-        { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 0.5, delay: 0.15, ease: "power3.out" }
-      );
-    }
-  }, []);
-
-  React.useLayoutEffect(() => {
-    if (showHello && helloRef.current) {
-      gsap.fromTo(
-        helloRef.current,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-      );
-    }
-  }, [showHello]);
+  React.useEffect(() => {
+    const bailout = setTimeout(() => {
+      runExit();
+    }, 12000);
+    return () => clearTimeout(bailout);
+  }, [runExit]);
 
   return (
     <div ref={loaderRef} className="loader">
-      <div ref={animRef} className="loader-animation">
-        {!showHello ? (
-          <h1>{percent}</h1>
-        ) : (
-          <div ref={helloRef} className="loader-finished">
-            <h1>
-              hello<span>.</span>
-            </h1>
-          </div>
-        )}
+      <div ref={animWrapRef} className="loader-animation">
+        <Lottie
+          lottieRef={lottieRef}
+          animationData={LoadingAnimation}
+          loop={false}
+          autoplay
+          onComplete={runExit}
+        />
       </div>
     </div>
   );
