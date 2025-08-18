@@ -1,6 +1,26 @@
+import ImgExample from "@/assets/img-about.jpg";
+
 export const FeatData = [
   {
     id: 0,
+    title: "Coast to Classroom",
+    description: `
+        
+    `,
+    featuredImg: ImgExample.src,
+    images: [
+      {
+        id: 0,
+        src: "",
+        alt: "",
+      },
+    ],
+    role: "Sr. Software Developer",
+    category: ["Development"],
+    comingSoon: false,
+  },
+  {
+    id: 1,
     title: "Farm Data Tools",
     description: `
         
@@ -18,12 +38,12 @@ export const FeatData = [
     comingSoon: false,
   },
   {
-    id: 1,
+    id: 2,
     title: "Perennia Academy",
     description: `
         
     `,
-    featuredImg: "",
+    featuredImg: ImgExample.src,
     images: [
       {
         id: 0,
@@ -36,7 +56,7 @@ export const FeatData = [
     comingSoon: false,
   },
   {
-    id: 2,
+    id: 3,
     title: "Perennia Labs",
     description: `
         
@@ -54,30 +74,12 @@ export const FeatData = [
     comingSoon: false,
   },
   {
-    id: 3,
-    title: "Coast to Classroom",
-    description: `
-        
-    `,
-    featuredImg: "",
-    images: [
-      {
-        id: 0,
-        src: "",
-        alt: "",
-      },
-    ],
-    role: "Sr. Software Developer",
-    category: ["Development"],
-    comingSoon: false,
-  },
-  {
     id: 4,
     title: "South of North Paper Co.",
     description: `
         
     `,
-    featuredImg: "",
+    featuredImg: ImgExample.src,
     images: [
       {
         id: 0,
@@ -113,7 +115,7 @@ export const FeatData = [
     description: `
         
     `,
-    featuredImg: "",
+    featuredImg: ImgExample.src,
     images: [
       {
         id: 0,

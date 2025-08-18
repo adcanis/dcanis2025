@@ -34,10 +34,9 @@ const About = () => {
               }}
               transition={{ duration: 0.25, delay: 0.1 }}
             >
-              Driven by curiosity and new technologies, I am continuously
-              pushing the boundaries to create immersive, emotional and joyful
-              experiences that blur the lines of reality through imagery and 3D
-              animations
+              Driven by curiosity and new technologies, we push the boundaries
+              of what’s possible—creating immersive, emotional, and joyful
+              digital experiences that feel alive.
             </motion.p>
           </div>
         </div>

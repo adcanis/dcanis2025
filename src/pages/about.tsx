@@ -6,6 +6,7 @@ import { ScrollDetection } from "@/hooks/useScrollDetection";
 import Footer from "@/components/Footer";
 import Capabilities from "@/components/capabilities/Capabilities";
 import Awards from "@/components/awards/Awards";
+import Dots from "@/components/Dots";
 import about_hero from "@/assets/about_hero.jpg";
 
 const About = () => {
@@ -33,7 +34,10 @@ const About = () => {
       <div className="about-content">
         <div className="hero">
           <div className="left">
-            <h1>Transforming brands through elevated digital experiences</h1>
+            <h1>
+              Transforming ideas into powerful digital experiences
+              <Dots />
+            </h1>
           </div>
           <div className="right"></div>
         </div>

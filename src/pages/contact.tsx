@@ -5,6 +5,7 @@ import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import { ScrollDetection } from "@/hooks/useScrollDetection";
 import { validateForm } from "@/utils/formValidate";
+import Dots from "@/components/Dots";
 import Faq from "@/components/faq/Faq";
 import Footer from "@/components/Footer";
 import about_hero from "@/assets/about_hero.jpg";
@@ -78,9 +79,10 @@ const Contact = () => {
           <div className="left">
             <h1>
               Let<span>{"'"}</span>s Talk
+              <Dots />
             </h1>
             <p>
-              {`We'd love to learn more about you and what we can design and build together.`}
+              {`I'd love to learn more about you and what we can build together.`}
             </p>
           </div>
           <div className="right">

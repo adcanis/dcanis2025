@@ -1,11 +1,15 @@
 import React from "react";
 import { CapData } from "./lib/CapData";
+import Dots from "../Dots";
 
 const Capabilities = () => {
   return (
     <div className="capabilities-container" data-theme="dark">
       <div className="capabilities-content">
-        <h1 className="capabilities-title">Capabilities</h1>
+        <h1 className="capabilities-title">
+          What I do
+          <Dots />
+        </h1>
         <div className="capabilities-list">
           {CapData.map((capability) => (
             <div key={capability.id} className="capability-item">
