@@ -40,6 +40,9 @@
           font-size: 1.5em;
           border-bottom: 1px solid rgba($shadow, 0.15);
           transition: 0.3s ease-in-out;
+          @media (max-width: $layout-breakpoint-large) {
+            font-size: 1.33em;
+          }
           &:last-child {
             border-bottom: none;
           }

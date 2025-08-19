@@ -49,11 +49,11 @@ const Work = () => {
   );
 
   const curve = useSpring(curveMV, {
-    stiffness: 120,
-    damping: 24,
-    mass: 0.9,
-    restDelta: 0.001,
-    restSpeed: 0.001,
+    stiffness: 180,
+    damping: 14,
+    mass: 0.65,
+    restDelta: 0.0005,
+    restSpeed: 0.0005,
   });
 
   const curvePath = useTransform(curve, (v) => getCurvePath(v));

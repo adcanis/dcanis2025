@@ -9,6 +9,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   letter-spacing: 3.33px;
+  overscroll-behavior: none;
   &::-webkit-scrollbar {
     display: none;
   }

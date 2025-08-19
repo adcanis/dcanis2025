@@ -69,9 +69,17 @@
           padding-top: 12.5px;
           padding-bottom: 12.5px;
           white-space: nowrap;
+          @media (max-width: $layout-breakpoint-large) {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            font-size: 0.88em;
+          }
           &:first-child {
             font-size: 5em;
             padding-left: 10px;
+            @media (max-width: $layout-breakpoint-large) {
+              font-size: 2.5em;
+            }
           }
         }
       }
