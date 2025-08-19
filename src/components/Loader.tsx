@@ -15,7 +15,7 @@ const Loader = ({ setIsLoading }: LoadingProps) => {
 
   React.useEffect(() => {
     if (lottieRef.current) {
-      lottieRef.current.setSpeed(1.5);
+      lottieRef.current.setSpeed(2.5);
     }
   }, []);
 

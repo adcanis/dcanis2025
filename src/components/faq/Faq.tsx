@@ -12,14 +12,7 @@ const Faq = () => {
   };
 
   return (
-    <motion.div
-      className="faq-container"
-      data-theme="dark"
-      initial={{ opacity: 0, z: 100 }}
-      whileInView={{ opacity: 1, z: 0 }}
-      exit={{ opacity: 0, z: -100 }}
-      transition={{ duration: 0.5, delay: 0.15 }}
-    >
+    <motion.div className="faq-container" data-theme="dark">
       <div className="faq-content">
         <h1 className="faq-title">FAQ</h1>
         {faqData.map((faq) => (

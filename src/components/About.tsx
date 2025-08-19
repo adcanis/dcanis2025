@@ -44,13 +44,15 @@ const About = () => {
           className="intro-btn-container"
           initial={{
             opacity: 0,
-            transform: "scale(1.01)",
+            x: -50,
+            scale: 1.01,
           }}
           whileInView={{
             opacity: 1,
-            transform: "scale(1.02)",
+            x: 0,
+            scale: 1.02,
           }}
-          transition={{ duration: 0.25, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
         >
           <Link className="intro-btn" href="/about">
             <p>About me</p>

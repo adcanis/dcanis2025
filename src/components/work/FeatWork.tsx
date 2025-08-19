@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { FeatData } from "./lib/FeatData";
+import { AllWork } from "./lib/Data";
 
 interface FeatWorkProps {
   selectedFilter: string;
@@ -33,8 +33,8 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
   });
 
   const filtered = React.useMemo(() => {
-    if (selectedFilter === "All") return FeatData;
-    return FeatData.filter((item) => item.category.includes(selectedFilter));
+    if (selectedFilter === "All") return AllWork;
+    return AllWork.filter((item) => item.category.includes(selectedFilter));
   }, [selectedFilter]);
 
   const positionOverRow = (e: React.MouseEvent<HTMLTableRowElement>) => {

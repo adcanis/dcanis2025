@@ -1,9 +1,100 @@
 .work-comp-container {
+  position: relative;
   @include page-container-default();
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 100dvh;
+  padding-bottom: 25vh;
   background: $background-light;
+  .work-comp-content {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    .work-comp-header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .feat-work-table {
+      display: table;
+      width: auto;
+      min-width: 100%;
+      height: fit-content;
+      border-collapse: collapse;
+      margin: 0 auto;
+      z-index: 0;
+      tbody {
+        display: table-header-group;
+        table-layout: fixed;
+        width: 100%;
+        margin-top: 10px;
+        tr {
+          cursor: pointer;
+          display: table-row;
+          min-width: 100%;
+          width: auto;
+          height: 48px;
+          text-align: left;
+          font-size: 1.5em;
+          border-bottom: 1px solid rgba($shadow, 0.15);
+          transition: 0.3s ease-in-out;
+          &:last-child {
+            border-bottom: none;
+          }
+          &:hover {
+            transform: scale(1.01);
+            color: $text-light;
+            transition: 0.3s ease-in-out;
+          }
+          td {
+            display: table-cell;
+            padding-top: 12.5px;
+            padding-bottom: 12.5px;
+            white-space: nowrap;
+            &:first-child {
+              font-size: 5em;
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+    }
+    .view-all-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: 150px;
+      & button {
+        height: 72px;
+        width: 148px;
+        font-size: 1.2em;
+        border-radius: 50px;
+      }
+    }
+    .hover-img {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      width: 512px;
+      height: 512px;
+      background: $background-grey;
+      pointer-events: none;
+      z-index: 1;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.9;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          opacity: 0;
+        }
+      }
+    }
+  }
 }

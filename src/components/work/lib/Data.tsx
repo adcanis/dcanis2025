@@ -2,6 +2,63 @@ import ImgExample from "@/assets/img-about.jpg";
 
 export const FeatData = [
   {
+    id: 4,
+    title: "South of North Paper Co.",
+    description: `
+        
+    `,
+    featuredImg: ImgExample.src,
+    images: [
+      {
+        id: 0,
+        src: "",
+        alt: "",
+      },
+    ],
+    role: "Lead Project Manager",
+    category: ["Development", "Design", "Digital Products"],
+    comingSoon: true,
+  },
+  {
+    id: 5,
+    title: "Norfolk'n Around",
+    description: `
+        
+    `,
+    featuredImg: "",
+    images: [
+      {
+        id: 0,
+        src: "",
+        alt: "",
+      },
+    ],
+    role: "Lead Project Manager",
+    category: ["Development", "Design"],
+    comingSoon: false,
+  },
+  {
+    id: 6,
+    title: "Darbishire",
+    description: `
+        
+    `,
+    featuredImg: ImgExample.src,
+    images: [
+      {
+        id: 0,
+        src: "",
+        alt: "",
+      },
+    ],
+    role: "Lead Software Developer",
+    category: ["Development", "Design"],
+    comingSoon: false,
+  },
+];
+
+export const AllWork = [
+  {
     id: 0,
     title: "Coast to Classroom",
     description: `
@@ -111,7 +168,7 @@ export const FeatData = [
   },
   {
     id: 6,
-    title: "Darbishire Cabinetry",
+    title: "Darbishire",
     description: `
         
     `,

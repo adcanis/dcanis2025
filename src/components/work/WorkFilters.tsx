@@ -1,5 +1,5 @@
 import React from "react";
-import { FeatData } from "./lib/FeatData";
+import { FeatData } from "./lib/Data";
 
 interface WorkFiltersProps {
   selectedFilter: string;

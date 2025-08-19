@@ -1,7 +1,6 @@
 .faq-container {
   @include page-container-default();
   background: linear-gradient($background-grey-dark, $background-dark);
-  padding-top: 100px;
   padding-bottom: 100px;
   .faq-content {
     @include inner-container-default(90%);
