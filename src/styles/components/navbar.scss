@@ -31,6 +31,9 @@
       }
       & a {
         color: $text-light;
+        &::after {
+          background: $light !important;
+        }
       }
     }
   }

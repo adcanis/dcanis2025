@@ -54,12 +54,23 @@ const Hero = () => {
         lottieRef={lottieRef}
       />
       <div className="hero-content">
-        <h1 ref={textRef}>
+        <motion.h1
+          ref={textRef}
+          initial={{
+            opacity: 0.75,
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+          }}
+          whileInView={{
+            opacity: 1,
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+          }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           Creative
           <br />
           Software Engineer
           <br />& Designer
-        </h1>
+        </motion.h1>
       </div>
       <ScrollDownBtn />
     </motion.div>
