@@ -29,13 +29,13 @@ const Work = () => {
             </h1>
           </div>
           <div className="right">
-            {/* <div className="current-role-container">
+            <div className="current-role-container">
               <h3>Current Role</h3>
               <p>
                 Senior Software Developer <span>@</span>Perennia Food and
                 Agriculture
               </p>
-            </div> */}
+            </div>
             <WorkFilters
               selectedFilter={selectedFilter}
               setSelectedFilter={setSelectedFilter}

@@ -12,11 +12,30 @@ const Faq = () => {
   };
 
   return (
-    <motion.div className="faq-container" data-theme="dark">
+    <div className="faq-container" data-theme="dark">
       <div className="faq-content">
-        <h1 className="faq-title">FAQ</h1>
+        <motion.h1
+          className="faq-title"
+          initial={{ y: -50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          FAQ
+        </motion.h1>
         {faqData.map((faq) => (
-          <div key={faq.id} className="faq-item">
+          <motion.div
+            key={faq.id}
+            className="faq-item"
+            initial={{
+              opacity: 0.75,
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            }}
+            whileInView={{
+              opacity: 1,
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+            }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <h3 className="faq-question" onClick={() => toggleAnswer(faq.id)}>
               {faq.question}
               <span>
@@ -34,10 +53,10 @@ const Faq = () => {
             >
               <p className="faq-answer">{faq.answer}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

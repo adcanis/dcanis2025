@@ -1,5 +1,7 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
+import { toast } from "react-toastify";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { AllWork } from "./lib/Data";
 
@@ -11,8 +13,10 @@ const IMG_W = 512;
 const IMG_H = 512;
 
 const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
+  const router = useRouter();
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const [activeImg, setActiveImg] = React.useState<string | null>(null);
+  const [activeItem, setActiveItem] = React.useState<any>(null);
   const [isHovered, setIsHovered] = React.useState<boolean>(false);
 
   const mouseX = useMotionValue(0);
@@ -51,19 +55,20 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
     mouseY.set(y);
   };
 
-  const handleMouseEnter = (imgSrc?: string) => {
-    if (imgSrc) {
-      setActiveImg(imgSrc);
+  const handleMouseEnter = (img: any) => {
+    if (img) {
+      setActiveImg(img.featuredImg);
+      setActiveItem(img);
       setIsHovered(true);
     } else {
       setIsHovered(false);
       setActiveImg(null);
+      setActiveItem(null);
     }
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setTimeout(() => setActiveImg(null), 160);
   };
 
   return (
@@ -85,9 +90,12 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
           {filtered.map((item) => (
             <tr
               key={item.id}
-              onMouseEnter={() => handleMouseEnter(item.featuredImg)}
+              onMouseEnter={() => handleMouseEnter(item)}
               onMouseLeave={() => handleMouseLeave}
               onMouseMove={positionOverRow}
+              onClick={() =>
+                item.comingSoon ? null : router.push(`/work/${item.title}`)
+              }
             >
               <td>{item.title}</td>
               <td>{item.role}</td>
@@ -116,6 +124,15 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
           height={512}
           draggable={false}
         />
+        <motion.div
+          className="view-btn"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+        >
+          <p>{activeItem?.comingSoon ? "Coming Soon!" : "View Project"}</p>
+        </motion.div>
       </motion.div>
     </div>
   );

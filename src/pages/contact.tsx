@@ -8,7 +8,7 @@ import { validateForm } from "@/utils/formValidate";
 import Dots from "@/components/Dots";
 import Faq from "@/components/faq/Faq";
 import Footer from "@/components/Footer";
-import about_hero from "@/assets/about_hero.jpg";
+import contactImg from "@/assets/img-contact.jpg";
 
 const Contact = () => {
   const [name, setName] = React.useState<string>("");
@@ -92,7 +92,7 @@ const Contact = () => {
               animate={controls}
             >
               <Image
-                src={about_hero.src}
+                src={contactImg.src}
                 alt="About Hero"
                 width={1024}
                 height={768}

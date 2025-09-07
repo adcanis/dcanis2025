@@ -33,17 +33,22 @@
         align-items: center;
         min-height: 200px;
         opacity: 0.8;
-        transition: 650ms;
+        transition: all 0.3s ease-in-out;
         @media (max-width: $layout-breakpoint-xsmall) {
           min-height: 124px;
+        }
+        & p {
+          display: none;
+          transition: all 0.3s ease-in-out;
         }
         &:hover {
           transform: scale(1.05);
           opacity: 1;
+          transition: all 0.3s ease-in-out;
           & p {
             display: block;
-            transition: all 0.3s ease-in-out;
             margin: 0;
+            transition: all 0.3s ease-in-out;
           }
         }
         & img {

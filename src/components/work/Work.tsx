@@ -49,11 +49,11 @@ const Work = () => {
   );
 
   const curve = useSpring(curveMV, {
-    stiffness: 180,
-    damping: 14,
-    mass: 0.65,
-    restDelta: 0.0005,
-    restSpeed: 0.0005,
+    stiffness: 120,
+    damping: 24,
+    mass: 0.9,
+    restDelta: 0.001,
+    restSpeed: 0.001,
   });
 
   const curvePath = useTransform(curve, (v) => getCurvePath(v));
@@ -116,7 +116,6 @@ const Work = () => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setTimeout(() => setActiveImg(null), 160);
   };
 
   return (
@@ -142,21 +141,13 @@ const Work = () => {
                 onMouseEnter={() => handleMouseEnter(item.featuredImg)}
                 onMouseLeave={handleMouseLeave}
                 onMouseMove={positionOverRow}
+                onClick={() => router.push(`/work/${item.title}`)}
               >
                 <td>{item.title}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div className="view-all-container">
-          <button
-            className="btn-transparent"
-            type="button"
-            onClick={() => router.push("/work")}
-          >
-            More Work
-          </button>
-        </div>
         <motion.div
           className="hover-img"
           style={{ x: springX, y: springY }}
@@ -172,6 +163,15 @@ const Work = () => {
             draggable={false}
           />
         </motion.div>
+        <div className="view-all-container">
+          <button
+            className="btn-transparent"
+            type="button"
+            onClick={() => router.push("/work")}
+          >
+            More Work
+          </button>
+        </div>
       </div>
       <motion.svg
         viewBox="0 0 100 20"

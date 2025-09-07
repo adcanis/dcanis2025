@@ -29,15 +29,13 @@
         display: table-header-group;
         table-layout: fixed;
         width: 100%;
-        margin-top: 10px;
         tr {
           cursor: pointer;
           display: table-row;
           min-width: 100%;
           width: auto;
-          height: 48px;
+          height: fit-content;
           text-align: left;
-          font-size: 1.5em;
           border-bottom: 1px solid rgba($shadow, 0.15);
           transition: 0.3s ease-in-out;
           @media (max-width: $layout-breakpoint-large) {
@@ -58,6 +56,7 @@
             white-space: nowrap;
             &:first-child {
               font-size: 5em;
+              margin: 0;
               padding-left: 10px;
             }
           }
@@ -82,7 +81,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      top: 0;
+      top: 75px;
       left: 0;
       width: 512px;
       height: 512px;

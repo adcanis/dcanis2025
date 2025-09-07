@@ -106,5 +106,19 @@
         opacity: 0;
       }
     }
+    .view-btn {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 124px;
+      height: 124px;
+      border-radius: 50%;
+      background: linear-gradient($yellow, $yellow-dark);
+      padding: 12px;
+      & p {
+        text-align: center;
+      }
+    }
   }
 }

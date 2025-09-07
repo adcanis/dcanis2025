@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import Capabilities from "@/components/capabilities/Capabilities";
 import Awards from "@/components/awards/Awards";
 import Dots from "@/components/Dots";
-import about_hero from "@/assets/about_hero.jpg";
+import aboutImg from "@/assets/img-about.jpg";
 
 const About = () => {
   const controls = useAnimation();
@@ -47,7 +47,7 @@ const About = () => {
           animate={controls}
         >
           <Image
-            src={about_hero.src}
+            src={aboutImg.src}
             alt="About Hero"
             width={1024}
             height={768}
