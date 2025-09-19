@@ -80,7 +80,7 @@ const WorkItem = () => {
         </div>
       ) : null}
       {nextWorkItem && (
-        <div className="next-item-container">
+        <div className="next-item-container" data-theme="dark">
           <div className="next-item-header">
             <p>Next case</p>
             <h1>{nextWorkItem.title}</h1>
