@@ -1,7 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { toast } from "react-toastify";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { AllWork } from "./lib/Data";
 
@@ -11,6 +10,10 @@ interface FeatWorkProps {
 
 const IMG_W = 512;
 const IMG_H = 512;
+const MAX_OFFSET = 25;
+
+const clamp = (v: number, min: number, max: number) =>
+  Math.max(min, Math.min(max, v));
 
 const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
   const router = useRouter();
@@ -21,8 +24,13 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX);
-  const springY = useSpring(mouseY);
+  const springX = useSpring(mouseX, { stiffness: 350, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 350, damping: 30 });
+
+  const innerX = useMotionValue(0);
+  const innerY = useMotionValue(0);
+  const innerSpringX = useSpring(innerX, { stiffness: 400, damping: 32 });
+  const innerSpringY = useSpring(innerY, { stiffness: 400, damping: 32 });
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +42,7 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  });
+  }, []);
 
   const filtered = React.useMemo(() => {
     if (selectedFilter === "All") return AllWork;
@@ -43,6 +51,7 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
 
   const positionOverRow = (e: React.MouseEvent<HTMLTableRowElement>) => {
     if (!containerRef.current) return;
+
     const containerRect = containerRef.current.getBoundingClientRect();
     const rowRect = (
       e.currentTarget as HTMLTableRowElement
@@ -53,6 +62,22 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
 
     mouseX.set(x);
     mouseY.set(y);
+
+    const hoverImgCenterX = containerRect.left + mouseX.get() + IMG_W / 2;
+    const hoverImgCenterY = containerRect.top + mouseY.get() + IMG_H / 2;
+
+    const dx = e.clientX - hoverImgCenterX;
+    const dy = e.clientY - hoverImgCenterY;
+
+    const dist = Math.hypot(dx, dy);
+    if (dist <= MAX_OFFSET || dist === 0) {
+      innerX.set(dx);
+      innerY.set(dy);
+    } else {
+      const scale = MAX_OFFSET / dist;
+      innerX.set(dx * scale);
+      innerY.set(dy * scale);
+    }
   };
 
   const handleMouseEnter = (img: any) => {
@@ -69,6 +94,8 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+    innerX.set(0);
+    innerY.set(0);
   };
 
   return (
@@ -91,7 +118,7 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
             <tr
               key={item.id}
               onMouseEnter={() => handleMouseEnter(item)}
-              onMouseLeave={() => handleMouseLeave}
+              onMouseLeave={handleMouseLeave}
               onMouseMove={positionOverRow}
               onClick={() =>
                 item.comingSoon ? null : router.push(`/work/${item.title}`)
@@ -104,34 +131,43 @@ const FeatWork = ({ selectedFilter }: FeatWorkProps) => {
           ))}
         </tbody>
       </table>
+
       <motion.div
         className="hover-img"
-        style={{
-          x: springX,
-          y: springY,
-        }}
-        initial={{ opacity: 0, scale: 0.8 }}
+        style={{ x: springX, y: springY, pointerEvents: "none" }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{
-          opacity: isHovered ? 1 : 0,
-          scale: isHovered ? 1 : 0.8,
+          opacity: isHovered && !!activeImg ? 1 : 0,
+          scale: isHovered && !!activeImg ? 1 : 0.98,
         }}
         transition={{ duration: 0.25 }}
+        aria-hidden={!isHovered}
       >
-        <Image
-          src={activeImg || ""}
-          alt="Hover Background"
-          width={512}
-          height={512}
-          draggable={false}
-        />
+        {!!activeImg && (
+          <Image
+            src={activeImg}
+            alt=""
+            width={IMG_W}
+            height={IMG_H}
+            draggable={false}
+            priority
+          />
+        )}
         <motion.div
           className="view-btn"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
+          style={{
+            x: innerSpringX,
+            y: innerSpringY,
+            pointerEvents: "none",
+          }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{
+            opacity: isHovered ? 1 : 0,
+            scale: isHovered ? 1 : 0.98,
+          }}
+          transition={{ duration: 0.35, delay: 0.15 }}
         >
-          <p>{activeItem?.comingSoon ? "Coming Soon!" : "View Project"}</p>
+          <p>{activeItem?.comingSoon ? "Coming Soon" : "View Project"}</p>
         </motion.div>
       </motion.div>
     </div>

@@ -1,7 +1,18 @@
+import Cap1Img from "@/assets/cap-1.jpg";
+import Cap2Img from "@/assets/cap-2.jpg";
+import Cap3Img from "@/assets/cap-3.jpg";
+import leadershipAnimation from "@/assets/lottie/leadership.json";
+import designAnimation from "@/assets/lottie/design.json";
+import developmentAnimation from "@/assets/lottie/development.json";
+
 export const CapData = [
   {
     id: 0,
-    title: "Digital Products",
+    title: "Leadership",
+    description: "Guiding teams and projects to success.",
+    image: Cap1Img.src,
+    animation: leadershipAnimation,
+    position: "right",
     options: [
       {
         id: 0,
@@ -28,6 +39,10 @@ export const CapData = [
   {
     id: 1,
     title: "Design",
+    description: "Creating user-centric designs that inspire.",
+    image: Cap2Img.src,
+    animation: designAnimation,
+    position: "left",
     options: [
       {
         id: 0,
@@ -54,6 +69,10 @@ export const CapData = [
   {
     id: 2,
     title: "Development",
+    description: "Building robust and scalable digital solutions.",
+    image: Cap3Img.src,
+    animation: developmentAnimation,
+    position: "right",
     options: [
       {
         id: 0,

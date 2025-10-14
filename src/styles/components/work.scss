@@ -30,7 +30,7 @@
         table-layout: fixed;
         width: 100%;
         tr {
-          cursor: pointer;
+          cursor: none !important;
           display: table-row;
           min-width: 100%;
           width: auto;

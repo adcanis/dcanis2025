@@ -11,7 +11,9 @@
   border-radius: 50%;
   background: transparent;
   @media (max-width: $layout-breakpoint-small) {
-    display: none;
+    left: 25px;
+    bottom: 0;
+    top: 700px;
   }
   & img {
     width: 100%;

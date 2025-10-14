@@ -8,6 +8,8 @@ import Capabilities from "@/components/capabilities/Capabilities";
 import Awards from "@/components/awards/Awards";
 import Dots from "@/components/Dots";
 import aboutImg from "@/assets/img-about.jpg";
+import Statistics from "@/components/about/Statistics";
+import Industries from "@/components/industries/Industries";
 
 const About = () => {
   const controls = useAnimation();
@@ -53,11 +55,10 @@ const About = () => {
             height={768}
           />
         </motion.div>
-        <div className="why-container" data-theme="light">
-          <h1>Why Dcanis</h1>
-        </div>
+        <Statistics />
+        <Capabilities />
       </div>
-      <Capabilities />
+      <Industries />
       <Awards />
       <Footer />
     </motion.div>

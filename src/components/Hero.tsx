@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import gsap from "gsap";
 import ScrollDownBtn from "./ScrollDownBtn";
-import CubesAnimation from "@/assets/lottie/cubes.json";
+import CodeLines from "@/assets/lottie/code.json";
 
 const Hero = () => {
   const lottieRef = React.useRef<LottieRefCurrentProps>(null);
@@ -11,7 +11,7 @@ const Hero = () => {
 
   React.useEffect(() => {
     if (lottieRef.current) {
-      lottieRef.current.setSpeed(0.05);
+      lottieRef.current.setSpeed(0.15);
     }
   }, []);
 
@@ -48,7 +48,7 @@ const Hero = () => {
     >
       <Lottie
         className="hero-animation"
-        animationData={CubesAnimation}
+        animationData={CodeLines}
         loop={true}
         preload="true"
         lottieRef={lottieRef}

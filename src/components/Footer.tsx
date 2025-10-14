@@ -42,13 +42,13 @@ const Footer = () => {
         </div>
         <div className="right">
           <div className="top">
-            <Link href="/Work" className="btn-underline">
+            <Link href="/work" className="btn-underline">
               Work
             </Link>
-            <Link href="/About" className="btn-underline">
+            <Link href="/about" className="btn-underline">
               About
             </Link>
-            <Link href="/Contact" className="btn-underline">
+            <Link href="/contact" className="btn-underline">
               Contact
             </Link>
           </div>

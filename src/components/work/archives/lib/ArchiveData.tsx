@@ -9,11 +9,7 @@ export const ArchiveData = [
   },
   {
     id: 2,
-    title: "Brantford Realty Group",
-  },
-  {
-    id: 3,
-    title: "145 Jerseyville",
+    title: "Brant Realty Group",
   },
   {
     id: 4,

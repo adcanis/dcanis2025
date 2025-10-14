@@ -117,6 +117,7 @@
       background: linear-gradient($yellow, $yellow-dark);
       padding: 12px;
       & p {
+        display: flex;
         text-align: center;
       }
     }

@@ -18,6 +18,8 @@ import darbHoverImg from "@/assets/img-darb-hover.jpg";
 import darbProj1 from "@/assets/img-darb-proj-1.jpg";
 import darbProj2 from "@/assets/img-darb-proj-2.jpg";
 
+import comingSoonBg from "@/assets/coming-soon-bg.png";
+
 export const FeatData = [
   {
     id: 0,
@@ -49,7 +51,7 @@ export const AllWork = [
   {
     id: 0,
     title: "Coast to Classroom",
-    featuredImg: "",
+    featuredImg: comingSoonBg.src,
     images: [
       {
         id: 0,
@@ -64,7 +66,7 @@ export const AllWork = [
   {
     id: 1,
     title: "Perennia Labs",
-    featuredImg: "",
+    featuredImg: comingSoonBg.src,
     images: [
       {
         id: 0,

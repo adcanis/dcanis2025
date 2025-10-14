@@ -64,16 +64,5 @@
         object-position: center;
       }
     }
-    .why-container {
-      display: flex;
-      flex-direction: column;
-      // justify-content: center;
-      min-height: 100dvh;
-      width: 100%;
-      margin-top: 25vh;
-      & h1 {
-        font-size: 4em;
-      }
-    }
   }
 }

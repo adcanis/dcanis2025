@@ -8,7 +8,7 @@ import { validateForm } from "@/utils/formValidate";
 import Dots from "@/components/Dots";
 import Faq from "@/components/faq/Faq";
 import Footer from "@/components/Footer";
-import contactImg from "@/assets/img-contact.jpg";
+import contactImg from "@/assets/contact.png";
 
 const Contact = () => {
   const [name, setName] = React.useState<string>("");
