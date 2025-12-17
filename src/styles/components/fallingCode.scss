@@ -1,0 +1,18 @@
+.playground {
+  position: relative;
+  flex: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: inherit;
+  height: 100%;
+  .code-symbol {
+    position: absolute;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 1px solid rgba($shadow, 0.1);
+  }
+}

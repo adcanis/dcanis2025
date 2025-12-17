@@ -1,0 +1,69 @@
+.services-hero {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  width: 100%;
+  background: $background-light;
+  overflow: hidden;
+  .hero-pixels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    z-index: 0;
+  }
+  .content {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    margin-left: 72px;
+    .text-container {
+      position: relative;
+      height: fit-content;
+      pointer-events: none;
+      .hero-title {
+        position: relative;
+        font-size: 25em;
+        font-family: $font-heavy;
+        margin: 0;
+        white-space: nowrap;
+        line-height: 0.6;
+        text-shadow: -5px -5px 2px rgba($shadow, 0.15);
+        .kicker {
+          position: absolute;
+          margin: 0;
+          font-size: 5em;
+          left: 0;
+          top: 0;
+          transform: translate(0, -100%);
+        }
+        .oo {
+          position: relative;
+          &::before {
+            content: "Making really";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.12em;
+            font-family: inherit;
+            font-weight: 400;
+            white-space: nowrap;
+            text-transform: uppercase;
+            text-shadow: none;
+            color: $light;
+          }
+        }
+        .star {
+          display: inline-block;
+          transform-origin: 50% 50%;
+          will-change: transform;
+          color: $yellow-dark;
+        }
+      }
+    }
+  }
+}

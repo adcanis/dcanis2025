@@ -1,0 +1,43 @@
+.text-slider-container {
+  position: relative;
+  overflow: hidden;
+  .spacer {
+    height: 5dvh;
+  }
+  .text-slide-row {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    .phrase-container {
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      p {
+        font-size: 12em;
+        font-family: $font-heavy;
+        text-transform: uppercase;
+        margin: 0;
+      }
+      .blob {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10em;
+        overflow: hidden;
+      }
+      .image-wrapper {
+        position: relative;
+        width: 256px;
+        height: 256px;
+        flex-shrink: 0;
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

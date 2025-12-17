@@ -17,28 +17,37 @@
 @import "react-toastify/dist/ReactToastify.css";
 
 // Components
-@import "./components/about.scss";
-@import "./components/archives.scss";
 @import "./components/awards.scss";
-@import "./components/capabilities.scss";
-@import "./components/faq.scss";
-@import "./components/featWork.scss";
+@import "./components/banner.scss";
+@import "./components/contactCard.scss";
+@import "./components/fallingCode.scss";
 @import "./components/footer.scss";
 @import "./components/hero.scss";
-@import "./components/industries.scss";
 @import "./components/loader.scss";
 @import "./components/navbar.scss";
 @import "./components/pageTransition.scss";
 @import "./components/scrollDownBtn.scss";
 @import "./components/statistics.scss";
-@import "./components/work.scss";
-@import "./components/workFilters.scss";
+@import "./components/textHighlighter.scss";
+@import "./components/textSlider.scss";
+
+// about
+@import "./components/_about/hero.scss";
+@import "./components/_about/intro.scss";
+@import "./components/_about/mission.scss";
+@import "./components/_about/whoIam.scss";
+
+// home
+
+// services
+@import "./components/_services/hero.scss";
+@import "./components/_services/expertise.scss";
+@import "./components/_services/interlude.scss";
+@import "./components/_services/industries.scss";
+@import "./components/_services/leadership.scss";
 
 // Pages
 @import "./pages/_default.scss";
 @import "./pages/about.scss";
-@import "./pages/contact.scss";
 @import "./pages/privacy.scss";
 @import "./pages/terms.scss";
-@import "./pages/work.scss";
-@import "./pages/workItem.scss";

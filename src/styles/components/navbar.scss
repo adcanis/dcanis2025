@@ -1,116 +1,127 @@
 .navbar-container {
   position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  top: 25px;
+  top: 0;
   left: 0;
-  width: 100%;
-  height: 64px;
-  transition: top 0.3s ease-in-out;
+  width: 72px;
+  height: 100dvh;
   z-index: 100;
-  &.scrolled {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: $background-light;
+  border-right: 1px solid $grey-light;
+  @media (max-width: $layout-breakpoint-small) {
+    position: fixed;
     top: 0;
-    background: rgba($white, 0.025);
-    box-shadow: 0 4px 30px rgba($shadow, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: top 0.3s ease-in-out;
-    &.on-dark {
-      .logo {
-        color: $text-light;
-        & span {
-          color: $yellow-dark;
-        }
-        &:hover {
-          color: $yellow-dark;
-          & span {
-            color: $text-light;
-          }
-        }
-      }
-      .mobile-menu-btn {
-        color: $text-light;
-      }
-      & a {
-        color: $text-light;
-        &::after {
-          background: $light !important;
-        }
+    width: 100%;
+    height: 64px;
+    flex-direction: row;
+  }
+  .logo {
+    flex: 0 0 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid $grey-light;
+    font-size: 2.5em;
+    font-family: $font-heavy;
+    letter-spacing: 0.05em;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    color: $text;
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0 0 2px;
+      color: $grey-dark;
+      transition: 0.3s ease-in-out;
+    }
+    &:hover {
+      opacity: 0.88;
+      color: $grey-dark;
+
+      span {
+        color: $text;
       }
     }
   }
-  .left,
-  .right {
+  .main-links {
+    flex: 1;
     display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .desktop-nav-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 16px;
-    margin: 0 100px;
-    @media (max-width: $layout-breakpoint-small) {
-      margin: 0 25px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      font-size: 2em;
-      font-family: $font-heavy;
-      letter-spacing: 0.05em;
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid $grey-light;
+    text-decoration: none;
+    color: $text;
+    overflow: visible;
+    transition: 0.3s ease-in-out;
+    &:hover .nav-label {
+      opacity: 0.88;
+      color: $grey-dark;
       transition: 0.3s ease-in-out;
-      & span {
-        color: $yellow-dark;
-        transition: 0.3s ease-in-out;
-      }
+    }
+  }
+  .nav-label {
+    display: inline-block;
+    transform: rotate(90deg);
+    transform-origin: center;
+    white-space: nowrap;
+    letter-spacing: 0.12em;
+    font-family: $font-heavy;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    transition: opacity 0.2s ease-out;
+  }
+  .contact-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 0 0 160px;
+    border: none;
+    padding: 0;
+    background: linear-gradient($background-grey-dark, $background-dark);
+    color: $text-light;
+    transition: 0.4s ease-in-out;
+    &:hover {
+      background: linear-gradient($yellow, $yellow-dark);
+      color: $text;
+      transition: 0.4s ease-in-out;
+    }
+    &.active {
+      background: linear-gradient($yellow, $yellow-dark);
+      color: $text;
       &:hover {
-        opacity: 0.88;
-        transition: 0.3s ease-in-out;
-        color: $grey-dark;
-        & span {
-          color: $text;
-          transition: 0.3s ease-in-out;
-        }
-      }
-    }
-    .mobile-menu-btn {
-      display: none;
-      @media (max-width: $layout-breakpoint-xsmall) {
-        position: relative;
-        display: flex;
-        align-items: center;
-        margin: 0;
-        font-size: 1.66em;
-        z-index: 1000;
-        &.open {
-          color: $text-light;
-        }
-      }
-    }
-    .desktop-nav-item {
-      @media (max-width: $layout-breakpoint-xsmall) {
-        display: none;
-      }
-    }
-    .mobile-menu {
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      top: 0;
-      left: 0;
-      height: 100dvh;
-      width: 100%;
-      will-change: transform, opacity;
-      background: linear-gradient($background-grey-dark, $background-dark);
-      & a {
-        font-size: 5em;
-        height: fit-content;
+        background: linear-gradient($background-grey-dark, $background-dark);
         color: $text-light;
-        margin-top: 25px;
+        transition: 0.4s ease-in-out;
       }
     }
-    & a {
-      display: flex;
-      align-items: center;
+  }
+  .contact-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transform: rotate(90deg);
+    transform-origin: center;
+    white-space: nowrap;
+    font-family: $font-heavy;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    svg {
+      font-size: 0.9rem;
     }
   }
 }

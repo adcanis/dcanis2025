@@ -15,7 +15,7 @@ const ScrollDownBtn = () => {
   React.useEffect(() => {
     const delay = setTimeout(() => {
       setShowButton(true);
-    }, 1500);
+    }, 3200);
 
     return () => clearTimeout(delay);
   }, []);
@@ -84,9 +84,9 @@ const ScrollDownBtn = () => {
             width={124}
             height={124}
           />
-          <div ref={arrowRef} className="floating-arrow">
+          <span ref={arrowRef} className="floating-arrow">
             <BsIcons.BsChevronCompactDown />
-          </div>
+          </span>
         </div>
       ) : null}
     </>

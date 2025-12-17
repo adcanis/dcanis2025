@@ -1,10 +1,7 @@
 "use client";
 import React from "react";
 import gsap from "gsap";
-import Hero from "@/components/Hero";
-import About from "@/components/about/About";
-import Work from "@/components/work/Work";
-import Faq from "@/components/faq/Faq";
+import Hero from "@/components/_home/Hero";
 import Footer from "@/components/Footer";
 
 const Home = () => {
@@ -28,11 +25,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="home page-container">
+    <div ref={containerRef} className="page-container">
       <Hero />
-      <About />
-      <Work />
-      <Faq />
+
       <Footer />
     </div>
   );

@@ -31,35 +31,28 @@ const Loader = ({ setIsLoading }: LoadingProps) => {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReduced) {
-      gsap.set(loaderRef.current, { yPercent: -100 });
+      gsap.set(loaderRef.current, { opacity: 0 });
       setIsLoading(false);
       return;
     }
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        defaults: { ease: "power2.inOut" },
+        defaults: { ease: "power2.out" },
         onComplete: () => setIsLoading(false),
       });
 
       if (animWrapRef.current) {
-        tl.to(animWrapRef.current, { opacity: 0, duration: 0.25 });
+        tl.to(animWrapRef.current, {
+          opacity: 0,
+          duration: 0.3,
+        });
       }
 
       tl.to(loaderRef.current, {
-        borderBottomLeftRadius: "50% 50%",
-        borderBottomRightRadius: "50% 50%",
+        opacity: 0,
         duration: 0.5,
-      }).to(
-        loaderRef.current,
-        {
-          yPercent: -100,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.inOut",
-        },
-        "-=0.3"
-      );
+      });
     }, loaderRef);
 
     return () => ctx.revert();

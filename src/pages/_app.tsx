@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import { ToastContainer } from "react-toastify";
+import Lenis from "lenis";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import "@/styles/main.scss";
@@ -11,31 +13,23 @@ export default function App({ Component, pageProps }: AppProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   React.useEffect(() => {
-    if (isLoading) return;
-
-    let scroll: any;
-    (async () => {
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-
-      scroll = new LocomotiveScroll({
-        lenisOptions: {
-          lerp: 0.5,
-          wheelMultiplier: 0.7,
-          touchMultiplier: 0.9,
-          syncTouch: true,
-          duration: 1.1,
-        },
-      });
-    })();
-
-    return () => {
-      scroll?.destroy?.();
-      scroll = null;
-    };
-  }, [isLoading]);
+    const lenis = new Lenis({
+      lerp: 0.033,
+      wheelMultiplier: 0.7,
+      touchMultiplier: 0.9,
+      syncTouch: true,
+      smoothWheel: true,
+      duration: 2,
+    });
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
-    <main className="App" data-scroll-speed="-.2">
+    <main className="App">
       {!isLoading ? (
         <div data-scroll-container ref={scrollRef} className="scroll-container">
           <ToastContainer

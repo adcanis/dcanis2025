@@ -1,0 +1,142 @@
+.contact-card-container {
+  @include inner-container-default(80%);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  top: 0;
+  left: 72px;
+  background: $background-dark;
+  background: radial-gradient(
+    circle,
+    rgba($background-grey-dark, 1) 0%,
+    rgba($background-grey-dark, 1) 50%,
+    rgba($background-dark, 1) 100%
+  );
+  transform-origin: left center;
+  z-index: 50;
+  .close-btn-container {
+    position: absolute;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .close-contact-card-btn {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: $background-dark;
+      background: radial-gradient(
+        circle,
+        rgba($background-grey-dark, 1) 0%,
+        rgba($background-grey-dark, 1) 50%,
+        rgba($background-dark, 1) 100%
+      );
+      font-size: 2em;
+      color: $text-light;
+      border: none;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        background: linear-gradient($yellow, $yellow-dark);
+        color: $text;
+        transition: 0.3s ease-in-out;
+      }
+    }
+  }
+  .contact-card-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: $text-light;
+    padding: 25px;
+    .social-links-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 50px;
+      .social-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        & a {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          font-size: 1.5em;
+          color: $text-light;
+          transition: color 0.3s ease-in-out;
+          border-top: 1px solid rgba($background-light, 0.15);
+          border-bottom: 1px solid rgba($background-light, 0.15);
+          &:nth-child(1),
+          &:nth-child(2) {
+            border-bottom: none;
+          }
+          &:hover {
+            color: $yellow;
+            transition: color 0.3s ease-in-out;
+          }
+          & span {
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+    .top {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 80%;
+      & h1 {
+        font-size: 18em;
+        line-height: 1;
+        font-family: $font-heavy;
+        text-transform: uppercase;
+        margin: 0;
+        & span {
+          color: $yellow;
+        }
+      }
+      & p {
+        margin: 0 0 0 25px;
+        font-size: 2em;
+        font-family: $font-regular;
+      }
+    }
+    .bottom {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 50px;
+      & a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        font-size: 1.5em;
+        & span {
+          display: flex;
+          align-items: center;
+          margin-bottom: 5px;
+          font-size: 0.66em;
+          color: $yellow;
+          & span {
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}
