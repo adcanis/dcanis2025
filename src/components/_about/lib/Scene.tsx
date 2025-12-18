@@ -27,18 +27,16 @@ const Scene = () => {
         }}
         style={{
           position: "absolute",
-          height: "105%",
-          width: "100%",
-          top: 0,
-          left: 0,
+          inset: 0,
           opacity: 0.15,
+          zIndex: 1,
         }}
       >
         <OrbitControls
           target={[0, 0.35, 0]}
           maxPolarAngle={1.45}
           enableZoom={false}
-          enableRotate={false}
+          enableRotate={true}
         />
 
         <PerspectiveCamera makeDefault fov={50} position={[3.5, 2, 3.25]} />

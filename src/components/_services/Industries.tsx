@@ -2,7 +2,7 @@ import React from "react";
 import { motion, useInView } from "framer-motion";
 import { Industries as IndustryData } from "@/lib/IndustryData";
 import FallingCode from "../FallingCode";
-import TextSlider from "../TextSlider";
+import Slider from "../Slider";
 import * as TbIcons from "react-icons/tb";
 
 const Industries = () => {
@@ -18,7 +18,7 @@ const Industries = () => {
         isNear ? "is-industries-bg" : ""
       }`}
     >
-      <TextSlider
+      <Slider
         text="Industries"
         tilt={-5}
         icon={<TbIcons.TbSquareDotFilled />}

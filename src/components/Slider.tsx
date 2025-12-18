@@ -9,6 +9,8 @@ interface Props {
   rows: number;
   icon?: React.ReactNode;
   images?: string[];
+  greyScale?: boolean;
+  invert?: boolean;
 }
 
 interface TextSlideProps {
@@ -18,9 +20,19 @@ interface TextSlideProps {
   icon?: React.ReactNode;
   images?: string[];
   left?: string;
+  greyScale?: boolean;
+  invert?: boolean;
 }
 
-const TextSlider = ({ text, tilt, rows, icon, images }: Props) => {
+const Slider = ({
+  text,
+  tilt,
+  rows,
+  icon,
+  images,
+  greyScale,
+  invert,
+}: Props) => {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -42,6 +54,8 @@ const TextSlider = ({ text, tilt, rows, icon, images }: Props) => {
             left={index % 2 === 0 ? "-10%" : "-15%"}
             icon={icon!}
             images={images}
+            greyScale={greyScale}
+            invert={invert}
             progress={scrollYProgress}
           />
         ))}
@@ -58,6 +72,8 @@ const TextSlide = ({
   left,
   icon,
   images,
+  greyScale,
+  invert,
 }: TextSlideProps) => {
   const directionValue = direction === "left" ? -1 : 1;
   const translateX = useTransform(
@@ -70,9 +86,27 @@ const TextSlide = ({
       style={{ x: translateX, left: left }}
       className="text-slide-row"
     >
-      <Phrase text={text} icon={icon} images={images} />
-      <Phrase text={text} icon={icon} images={images} />
-      <Phrase text={text} icon={icon} images={images} />
+      <Phrase
+        text={text}
+        icon={icon}
+        images={images}
+        greyScale={greyScale}
+        invert={invert}
+      />
+      <Phrase
+        text={text}
+        icon={icon}
+        images={images}
+        greyScale={greyScale}
+        invert={invert}
+      />
+      <Phrase
+        text={text}
+        icon={icon}
+        images={images}
+        greyScale={greyScale}
+        invert={invert}
+      />
     </motion.div>
   );
 };
@@ -81,10 +115,14 @@ const Phrase = ({
   text,
   icon,
   images,
+  greyScale,
+  invert,
 }: {
   text?: string;
   icon?: React.ReactNode;
   images?: string[];
+  greyScale?: boolean;
+  invert?: boolean;
 }) => {
   return (
     <div className="phrase-container">
@@ -103,6 +141,11 @@ const Phrase = ({
               className="slide-image"
               width={256}
               height={256}
+              style={{
+                filter: `${
+                  greyScale ? "grayscale(1)" : invert ? "invert(1)" : "none"
+                }`,
+              }}
             />
           </div>
         ))
@@ -111,4 +154,4 @@ const Phrase = ({
   );
 };
 
-export default TextSlider;
+export default Slider;

@@ -5,21 +5,21 @@
   color: $text;
   background: $background-light;
   transition: color 700ms ease;
-  margin-top: -350px;
-  z-index: 1;
+  margin-top: -300px;
+  z-index: 0;
+  overflow: visible;
   &::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: $grey-dark;
     opacity: 0;
     transition: opacity 700ms ease;
     z-index: 0;
   }
 
   &.is-near-bg {
-    color: $text-light;
+    // color: $text-light;
   }
 
   &.is-near-bg::before {
@@ -39,11 +39,32 @@
     width: 98%;
     height: fit-content;
     .about-intro {
+      position: relative;
       align-self: center;
       text-align: center;
-      font-size: 6em;
+      font-size: 4.5em;
       font-family: $font-heavy;
-      width: 60%;
+      width: 65%;
+      line-height: 1.3em;
+      padding-bottom: 15vh;
+      #quote {
+        color: $yellow-dark;
+      }
+      #intro-hover-point {
+        position: relative;
+        margin-left: 5px;
+        text-decoration: underline;
+        #hover-item {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 10;
+          & video {
+            height: 256px;
+            width: auto;
+          }
+        }
+      }
     }
     .about-container {
       display: flex;
@@ -64,6 +85,7 @@
       .left {
         width: 60%;
         & p {
+          color: $grey-dark;
           font-size: 2em;
           margin: 0;
         }

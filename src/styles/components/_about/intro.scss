@@ -1,9 +1,10 @@
 .intro-container {
+  cursor: none;
   position: relative;
   min-height: 100dvh;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   .intro-pixels {
     position: absolute;
     inset: 0;
@@ -25,13 +26,13 @@
       width: 80%;
       min-height: 100dvh;
       max-height: fit-content;
-      padding-top: 150px;
-      // padding-bottom: 150px;
+      // padding-top: 150px;
       .section-title {
         display: inline-block;
         transform-origin: 50% 50%;
         will-change: transform;
-        margin-top: 25dvh;
+        // padding-top: 20vh;
+        padding-bottom: 10vh;
         & h1 {
           font-size: 40em;
           font-family: $font-heavy;

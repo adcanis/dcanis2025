@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { useScroll, useTransform, motion } from "framer-motion";
-import TextHighlighter from "../TextHighlighter";
 
 const Mission = () => {
   const containerRef = React.useRef<HTMLDivElement | null>(null);

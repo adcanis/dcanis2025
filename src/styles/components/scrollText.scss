@@ -1,0 +1,18 @@
+.scroll-text {
+  display: flex;
+  font-size: 60px;
+  text-align: center;
+  line-height: 1;
+  max-width: 1280px;
+  color: $text;
+  flex-wrap: wrap;
+  .word {
+    position: relative;
+    margin-right: 12px;
+    margin-top: 12px;
+    .text-shadow {
+      position: absolute;
+      opacity: 20%;
+    }
+  }
+}

@@ -14,12 +14,12 @@ export default function App({ Component, pageProps }: AppProps) {
 
   React.useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.033,
-      wheelMultiplier: 0.7,
-      touchMultiplier: 0.9,
-      syncTouch: true,
+      lerp: 0.015,
+      wheelMultiplier: 0.4,
+      touchMultiplier: 0.6,
+      syncTouch: false,
       smoothWheel: true,
-      duration: 2,
+      duration: 3.5,
     });
     function raf(time: any) {
       lenis.raf(time);

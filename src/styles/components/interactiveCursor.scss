@@ -1,0 +1,10 @@
+.interactive-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  user-select: none;
+  font-size: 0.88em;
+  z-index: 100;
+  will-change: transform;
+}
