@@ -1,7 +1,8 @@
 import React from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactCard from "./ContactCard";
+import Link from "@/utils/LenisLink";
 import * as AiIcons from "react-icons/ai";
 
 const Navbar = () => {
