@@ -28,7 +28,7 @@ const Scene = () => {
         style={{
           position: "absolute",
           inset: 0,
-          opacity: 0.15,
+          opacity: 0.33,
           zIndex: 1,
         }}
       >
@@ -36,7 +36,7 @@ const Scene = () => {
           target={[0, 0.35, 0]}
           maxPolarAngle={1.45}
           enableZoom={false}
-          enableRotate={true}
+          enableRotate={false}
         />
 
         <PerspectiveCamera makeDefault fov={50} position={[3.5, 2, 3.25]} />
@@ -44,7 +44,7 @@ const Scene = () => {
         <CubeCamera resolution={128} frames={1}>
           {(texture) => (
             <>
-              <Environment background={false} map={texture} />
+              <Environment background={false} preset="city" map={texture} />
               <Robot />
             </>
           )}

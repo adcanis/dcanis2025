@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Matter, {
   Engine,
@@ -8,68 +9,40 @@ import Matter, {
   Mouse,
   MouseConstraint,
 } from "matter-js";
+import { AwardsData } from "@/lib/AwardsData";
 
-interface FallingCodeProps {
-  background?: string;
-  fontColor?: string;
-}
+const awardSizes = [124, 156, 200, 224, 256];
 
-const codeSymbols = [
-  "<",
-  ">",
-  "/",
-  "\\",
-  "{",
-  "}",
-  "[",
-  "]",
-  "(",
-  ")",
-  ";",
-  ":",
-  "=",
-  "+",
-  "-",
-  "*",
-  "&",
-  "|",
-  "!",
-  "?",
-  "#",
-  "@",
-  "$",
-  "%",
-  "^",
-  "~",
-  "`",
-  '"',
-  "'",
-  ".",
-  "</",
-  "/>",
-  "{}",
-  "[]",
-  "()",
-  "==",
-  "!=",
-  "&&",
-  "||",
-  "=>",
-];
+const getRandomizedAwards = () => {
+  const shuffled = [...AwardsData];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
-const symbolSizes = [60, 80, 70, 90, 75, 85, 65, 95, 55, 100];
-
-const FallingCode = ({ background, fontColor }: FallingCodeProps) => {
+const AwardsMatter = () => {
   const playgroundRef = React.useRef<HTMLDivElement | null>(null);
   const engineRef = React.useRef<Engine | null>(null);
   const bodiesRef = React.useRef<Body[]>([]);
   const rafRef = React.useRef<number | null>(null);
-  const symbolRefs = React.useRef<(HTMLDivElement | null)[]>([]);
   const mouseConstraintRef = React.useRef<MouseConstraint | null>(null);
   const lastTimeRef = React.useRef(0);
 
+  const randomizedAwards = React.useMemo(() => getRandomizedAwards(), []);
+
+  const frozeRef = React.useRef(false);
+  const settledForMsRef = React.useRef(0);
+  const STOP_AFTER_SETTLED_MS = 600;
+  const SETTLED_SPEED = 0.06;
+  const SETTLED_ANGULAR = 0.06;
+
   const [ready, setReady] = React.useState(false);
   const [inView, setInView] = React.useState(false);
+  const [awardRefs] = React.useState<(HTMLDivElement | null)[]>(
+    new Array(AwardsData.length).fill(null)
+  );
 
   React.useEffect(() => {
     const container = playgroundRef.current;
@@ -98,30 +71,35 @@ const FallingCode = ({ background, fontColor }: FallingCodeProps) => {
     const height = rect.height;
 
     const engine = Engine.create({
-      gravity: { x: 0, y: 0.8 },
+      gravity: { x: 0, y: 0.15 },
     });
 
     const world = engine.world;
     engine.timing.timeScale = 1;
 
-    const floor = Bodies.rectangle(width / 2, height, width, 10, {
+    const floor = Bodies.rectangle(width / 2, height + 5, width, 10, {
       isStatic: true,
-      restitution: 0.8,
-      friction: 0.1,
-      frictionStatic: 0.1,
+      restitution: 0.3,
+      friction: 0.3,
+      frictionStatic: 0.3,
     });
 
-    const leftWall = Bodies.rectangle(-20, height / 2, 40, height, {
+    const ceiling = Bodies.rectangle(width / 2, -5, width, 10, {
       isStatic: true,
-      restitution: 0.8,
+      restitution: 0.3,
     });
 
-    const rightWall = Bodies.rectangle(width + 20, height / 2, 40, height, {
+    const leftWall = Bodies.rectangle(-5, height / 2, 10, height, {
       isStatic: true,
-      restitution: 0.8,
+      restitution: 0.3,
     });
 
-    World.add(world, [floor, leftWall, rightWall]);
+    const rightWall = Bodies.rectangle(width - 25, height / 2, 10, height, {
+      isStatic: true,
+      restitution: 0.3,
+    });
+
+    World.add(world, [floor, ceiling, leftWall, rightWall]);
 
     const mouse = Mouse.create(container);
     const mouseConstraint = MouseConstraint.create(engine, {
@@ -137,10 +115,10 @@ const FallingCode = ({ background, fontColor }: FallingCodeProps) => {
 
     const bodies: Body[] = [];
 
-    codeSymbols.forEach((_, index) => {
-      const size = symbolSizes[index % symbolSizes.length] ?? 70;
+    randomizedAwards.forEach((_, index) => {
+      const size = awardSizes[index % awardSizes.length] ?? 85;
       const x = width * 0.1 + Math.random() * width * 0.8;
-      const y = -height * 0.3 - Math.random() * height * 0.7;
+      const y = height - size / 2 - 10;
 
       const body = Bodies.rectangle(x, y, size, size, {
         restitution: 0.85,
@@ -160,16 +138,24 @@ const FallingCode = ({ background, fontColor }: FallingCodeProps) => {
 
     engineRef.current = engine;
     bodiesRef.current = bodies;
+
+    frozeRef.current = false;
+    settledForMsRef.current = 0;
+
     setReady(true);
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+
       Engine.clear(engine);
       engineRef.current = null;
       bodiesRef.current = [];
       mouseConstraintRef.current = null;
+
+      frozeRef.current = false;
+      settledForMsRef.current = 0;
     };
-  }, []);
+  }, [randomizedAwards]);
 
   React.useEffect(() => {
     if (!inView || !engineRef.current) {
@@ -192,7 +178,7 @@ const FallingCode = ({ background, fontColor }: FallingCodeProps) => {
       Matter.Engine.update(engine, clampedDelta);
 
       bodiesRef.current.forEach((body, i) => {
-        const el = symbolRefs.current[i];
+        const el = awardRefs[i];
         if (!el) return;
 
         const { x, y } = body.position;
@@ -213,7 +199,7 @@ const FallingCode = ({ background, fontColor }: FallingCodeProps) => {
         rafRef.current = null;
       }
     };
-  }, [inView]);
+  }, [inView, awardRefs]);
 
   return (
     <motion.div
@@ -223,29 +209,34 @@ const FallingCode = ({ background, fontColor }: FallingCodeProps) => {
       animate={{ opacity: ready ? 1 : 0 }}
       transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
       style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
         cursor: "grab",
         userSelect: "none",
         touchAction: "none",
+        pointerEvents: "all",
+        zIndex: 1,
       }}
     >
       {ready &&
-        codeSymbols.map((symbol, index) => {
-          const size = symbolSizes[index % symbolSizes.length] ?? 70;
+        randomizedAwards.map((award, index) => {
+          const size = awardSizes[index % awardSizes.length] ?? 85;
 
           return (
             <motion.div
-              key={`symbol-${index}`}
-              className="code-symbol"
+              key={`award-${award.id}-${index}`}
+              className="award-icon"
+              id={award.name.trim().toLowerCase().replace(/\s+/g, "-")}
               ref={(el) => {
-                symbolRefs.current[index] = el;
+                awardRefs[index] = el;
               }}
               style={
                 {
                   width: `${size}px`,
                   height: `${size}px`,
-                  color: fontColor || "#0b090a",
-                  background: background || "#f5f7ff",
-                  fontSize: `${size * 0.6}px`,
                 } as React.CSSProperties
               }
               initial={{
@@ -270,7 +261,17 @@ const FallingCode = ({ background, fontColor }: FallingCodeProps) => {
                 bounce: 0.3,
               }}
             >
-              {symbol}
+              <Image
+                src={award.icon}
+                alt={award.name}
+                width={size - 24}
+                height={size - 24}
+                style={{
+                  objectFit: "contain",
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
             </motion.div>
           );
         })}
@@ -278,4 +279,4 @@ const FallingCode = ({ background, fontColor }: FallingCodeProps) => {
   );
 };
 
-export default FallingCode;
+export default AwardsMatter;

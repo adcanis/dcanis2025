@@ -17,25 +17,36 @@
 @import "react-toastify/dist/ReactToastify.css";
 
 // Components
-@import "./components/awards.scss";
+@import "./components/awardsMatter.scss";
 @import "./components/banner.scss";
 @import "./components/contactCard.scss";
-@import "./components/fallingCode.scss";
 @import "./components/footer.scss";
 @import "./components/hero.scss";
-@import "./components/interactiveCursor.scss";
+@import "./components/horizontalSection.scss";
 @import "./components/loader.scss";
 @import "./components/navbar.scss";
 @import "./components/pageTransition.scss";
 @import "./components/scrollDownBtn.scss";
-@import "./components/scrollText.scss";
 @import "./components/slider.scss";
 @import "./components/statistics.scss";
 
+// Cursors
+@import "./components/cursors/interactiveCursor.scss";
+@import "./components/cursors/maskedCursor.scss";
+
+// Text Effects
+@import "./components/text-effects/curvedText.scss";
+@import "./components/text-effects/scrollText.scss";
+@import "./components/text-effects/text3D.scss";
+@import "./components/text-effects/textMask.scss";
+@import "./components/text-effects/textSplit.scss";
+
 // about
+@import "./components/_about/awards.scss";
+@import "./components/_about/bio.scss";
 @import "./components/_about/hero.scss";
-@import "./components/_about/intro.scss";
 @import "./components/_about/mission.scss";
+@import "./components/_about/summary.scss";
 @import "./components/_about/whoIam.scss";
 
 // home
@@ -49,6 +60,5 @@
 
 // Pages
 @import "./pages/_default.scss";
-@import "./pages/about.scss";
 @import "./pages/privacy.scss";
 @import "./pages/terms.scss";

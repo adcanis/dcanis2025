@@ -2,66 +2,47 @@
   position: relative;
   height: fit-content;
   width: 100%;
-  color: $text;
-  background: $background-light;
-  transition: color 700ms ease;
-  margin-top: -300px;
   z-index: 0;
-  overflow: visible;
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 700ms ease;
-    z-index: 0;
-  }
-
-  &.is-near-bg {
-    // color: $text-light;
-  }
-
-  &.is-near-bg::before {
-    opacity: 1;
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
   .content {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 98%;
+    width: 100%;
     height: fit-content;
     .about-intro {
       position: relative;
-      align-self: center;
-      text-align: center;
-      font-size: 4.5em;
-      font-family: $font-heavy;
-      width: 65%;
-      line-height: 1.3em;
-      padding-bottom: 15vh;
-      #quote {
-        color: $yellow-dark;
-      }
-      #intro-hover-point {
-        position: relative;
-        margin-left: 5px;
-        text-decoration: underline;
-        #hover-item {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          z-index: 10;
-          & video {
-            height: 256px;
-            width: auto;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: fit-content;
+      margin-top: 80vh;
+      padding-bottom: 5vh;
+      background: $background-dark;
+      z-index: 0;
+      .about-intro-text {
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+        font-size: 4.5em;
+        font-family: $font-heavy;
+        color: $text-light;
+        #quote {
+          color: $yellow-dark;
+        }
+        #intro-hover-point {
+          position: relative;
+          margin-left: 5px;
+          text-decoration: underline;
+          #hover-item {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+            & video {
+              height: 256px;
+              width: auto;
+            }
           }
         }
       }
@@ -100,5 +81,12 @@
         }
       }
     }
+  }
+  .horizontal-section-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    background: $background-dark;
+    z-index: 1;
   }
 }

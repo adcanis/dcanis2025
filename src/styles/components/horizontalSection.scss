@@ -1,0 +1,20 @@
+.hs-wrapper {
+  position: relative;
+  height: calc(var(--vh, 1vh) * var(--section-count) * 100);
+  margin-top: 25vh;
+  .hs-content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    .hs-content-grid {
+      display: flex;
+      flex-direction: row;
+      & > * {
+        min-width: 100vw;
+        height: 100vh;
+      }
+    }
+  }
+}

@@ -1,7 +1,11 @@
 import React from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-const InteractiveCursor = () => {
+interface InteractiveCursorProps {
+  cursor: string;
+}
+
+const InteractiveCursor = ({ cursor }: InteractiveCursorProps) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -32,7 +36,7 @@ const InteractiveCursor = () => {
       animate={{ opacity: 1, scale: 1.2 }}
       transition={{ duration: 0.66, delay: 0.33, ease: "easeOut" }}
     >
-      {"<-Move->"}
+      {cursor}
     </motion.div>
   );
 };

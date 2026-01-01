@@ -1,0 +1,43 @@
+.bio-scene-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100dvh;
+}
+
+.bio-info-container {
+  display: flex;
+  width: 100%;
+  height: 100dvh;
+  .bio-content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60%;
+      & p {
+        font-size: 1.75em;
+        color: $text-light;
+        width: 60%;
+        line-height: 1.5em;
+      }
+    }
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40%;
+      opacity: 0.5;
+      .bio-animation {
+        width: 66%;
+        height: auto;
+      }
+    }
+  }
+}

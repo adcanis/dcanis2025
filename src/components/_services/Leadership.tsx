@@ -1,12 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { leadershipApproach } from "@/lib/LeadershipData";
+import * as MdICons from "react-icons/md";
 
 const Leadership = () => {
   return (
     <div className="page-container leadership-container">
       <div className="section-container content" data-theme="light">
-        <p className="section-title">My Approach</p>
+        <motion.h1 className="section-title">
+          <span>
+            <MdICons.MdArrowForward />
+          </span>
+          My Approach
+        </motion.h1>
         <div className="approach-list">
           {leadershipApproach.map((approach) => (
             <motion.div

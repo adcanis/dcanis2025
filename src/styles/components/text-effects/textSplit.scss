@@ -1,0 +1,21 @@
+.text-split-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  & p {
+    text-transform: uppercase;
+    font-family: $font-heavy;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .text-split-img-container {
+    display: flex;
+    justify-content: center;
+    width: 0;
+    overflow: hidden;
+    & img {
+      width: 256px;
+    }
+  }
+}

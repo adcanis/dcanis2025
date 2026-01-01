@@ -1,0 +1,51 @@
+import AwwwardsLogo from "@/assets/awwwards_logo.png";
+import CSSDALogo from "@/assets/css_logo.png";
+import FWALogo from "@/assets/fwa_logo.png";
+import OrpetronLogo from "@/assets/orpetron_logo.png";
+import TDKLogo from "@/assets/tdk_logo.png";
+import WWWACLogo from "@/assets/wwwac_logo.png";
+
+export const AwardsData = [
+  {
+    id: 1,
+    name: "Awwwards",
+    icon: AwwwardsLogo.src,
+    count: 1,
+    background: "#2aa9c9",
+  },
+  {
+    id: 2,
+    name: "CSS Design Awards",
+    icon: CSSDALogo.src,
+    count: 1,
+    background: "#f2a65a",
+  },
+  {
+    id: 3,
+    name: "Orpetron Web Design Awards",
+    icon: OrpetronLogo.src,
+    count: 2,
+    background: "#6b7fd7",
+  },
+  {
+    id: 4,
+    name: "Top Design Kings",
+    icon: TDKLogo.src,
+    count: 2,
+    background: "#8fbf4d",
+  },
+  {
+    id: 5,
+    name: "Web Association of Canada",
+    icon: WWWACLogo.src,
+    count: 1,
+    background: "#c57dff",
+  },
+  {
+    id: 6,
+    name: "FWA",
+    icon: FWALogo.src,
+    count: 1,
+    background: "#a69f8d",
+  },
+];

@@ -1,13 +1,9 @@
 .footer {
+  position: relative;
   height: 65dvh;
   background: $background-dark;
-  background: radial-gradient(
-    circle,
-    rgba($background-grey-dark, 1) 0%,
-    rgba($background-grey-dark, 1) 50%,
-    rgba($background-dark, 1) 100%
-  );
   color: $text-light;
+  z-index: 5;
   .footer-content {
     position: relative;
     .top,
@@ -43,6 +39,22 @@
     & p {
       margin-top: 50px;
       opacity: 0.66;
+    }
+  }
+}
+#light {
+  background: $background-light;
+  & img {
+    opacity: 1;
+    filter: brightness(33%);
+  }
+  & p,
+  a {
+    color: $text;
+    transition: color 0.3s ease-in-out;
+    &:hover {
+      color: $grey-dark;
+      transition: color 0.3s ease-in-out;
     }
   }
 }

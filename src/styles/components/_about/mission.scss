@@ -1,32 +1,7 @@
 .mission-container {
   position: relative;
-  min-height: 100dvh;
-  height: 100%;
+  display: flex;
   width: 100%;
-  overflow: hidden;
-  .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: $background-light;
-    .inner-container {
-      display: flex;
-      justify-content: center;
-      width: 80%;
-      min-height: 100dvh;
-      max-height: fit-content;
-      padding-top: 150px;
-      padding-bottom: 150px;
-      color: $text;
-      & h1 {
-        font-size: 10em;
-        font-family: $font-heavy;
-        margin: 0;
-        line-height: 1em;
-        text-align: center;
-      }
-    }
-  }
+  height: 100dvh;
+  background: $background-light;
 }

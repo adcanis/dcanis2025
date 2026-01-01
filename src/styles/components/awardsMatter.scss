@@ -2,17 +2,21 @@
   position: relative;
   flex: 1;
   top: 0;
-  left: 0;
   width: 100%;
-  min-height: inherit;
   height: 100%;
-  .code-symbol {
+  .award-icon {
     position: absolute;
     pointer-events: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    border: 1px solid rgba($shadow, 0.1);
+    background: $background-light;
+    border: 2px solid $light;
+    border-radius: 50%;
+    padding: 25px;
+    & img {
+      pointer-events: none;
+    }
   }
 }

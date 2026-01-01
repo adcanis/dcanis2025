@@ -1,6 +1,13 @@
 import React from "react";
 import * as THREE from "three";
-import { useGLTF, useAnimations } from "@react-three/drei";
+import {
+  Text,
+  MeshTransmissionMaterial,
+  useGLTF,
+  useAnimations,
+} from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+import { useControls } from "leva";
 
 const BASE_ROTATION_Y = Math.PI / -1.25;
 const BASE_ROTATION_X = -0.05;
@@ -18,9 +25,15 @@ const Robot = React.memo(() => {
   const ref = React.useRef<THREE.Object3D | null>(null);
   const { scene, animations } = useGLTF("/models/face/scene.gltf");
   const { actions } = useAnimations(animations, ref);
+  const { viewport } = useThree();
 
-  // Mutate scene once when it's available
-  React.useEffect(() => {
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.rotation.y += 0.002;
+    }
+  });
+
+  React.useMemo(() => {
     if (!scene) return;
 
     scene.traverse((object) => {
@@ -35,9 +48,7 @@ const Robot = React.memo(() => {
 
         const mat = object.material as THREE.MeshStandardMaterial | undefined;
         if (mat) {
-          // Slightly lower than 20 is usually indistinguishable here,
-          // and helps avoid "over-hot" reflections
-          mat.envMapIntensity = 12;
+          mat.envMapIntensity = 20;
 
           if (mat.name?.includes("Holograms")) {
             object.visible = false;
@@ -49,16 +60,13 @@ const Robot = React.memo(() => {
 
   React.useEffect(() => {
     if (!ref.current) return;
-    ref.current.scale.set(2.5, 2.5, 2.5);
-    ref.current.position.set(0, 0, 0);
+    ref.current.scale.set(2.75, 2.75, 2.75);
+    ref.current.position.set(0, -0.5, 0);
     ref.current.rotation.set(BASE_ROTATION_X, BASE_ROTATION_Y, 0);
   }, [scene]);
 
-  // Play once when actions become available
   React.useEffect(() => {
-    const list = Object.values(actions);
-    list.forEach((action) => action?.reset().play());
-    return () => list.forEach((action) => action?.stop());
+    Object.values(actions).forEach((action) => action?.reset().play());
   }, [actions]);
 
   return <primitive ref={ref} object={scene} />;

@@ -1,38 +1,46 @@
+import TempImg from "@/assets/img-about.jpg";
+import IndGov from "@/assets/ind-gov.jpg";
+import IndManufacturing from "@/assets/ind-manufacturing.jpg";
+import IndClimate from "@/assets/ind-climate.jpg";
+import IndAqua from "@/assets/ind-aqua.jpg";
+import IndLabs from "@/assets/ind-labs.jpg";
+
 export const Industries = [
   {
     id: 0,
-    name: "B2B & Enterprise",
+    text: "E",
+    text2: "nterprise",
+    image: TempImg.src,
   },
   {
     id: 1,
-    name: "Manufacturing",
+    text: "Govern",
+    text2: "ment",
+    image: IndGov.src,
   },
   {
     id: 2,
-    name: "Government",
+    text: "Manufacturin",
+    text2: "g",
+    image: IndManufacturing.src,
   },
+
   {
     id: 3,
-    name: "Agriculture & AgTech",
+    text: "Clima",
+    text2: "te & Energy",
+    image: IndClimate.src,
   },
   {
     id: 4,
-    name: "Marine & Aquaculture",
+    text: "Aquacul",
+    text2: "ture",
+    image: IndAqua.src,
   },
   {
     id: 5,
-    name: "Laboratories & Research",
-  },
-  {
-    id: 6,
-    name: "Food & Beverage",
-  },
-  {
-    id: 7,
-    name: "Public Education",
-  },
-  {
-    id: 8,
-    name: "\u00A0",
+    text: "Labor",
+    text2: "atories",
+    image: IndLabs.src,
   },
 ];

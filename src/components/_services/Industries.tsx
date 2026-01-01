@@ -1,52 +1,46 @@
 import React from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Industries as IndustryData } from "@/lib/IndustryData";
-import FallingCode from "../FallingCode";
-import Slider from "../Slider";
-import * as TbIcons from "react-icons/tb";
+import TextMask from "../text-effects/TextMask";
+import TextSplit from "../text-effects/TextSplit";
 
 const Industries = () => {
-  const listRef = React.useRef<HTMLDivElement | null>(null);
-  const isNear = useInView(listRef, {
-    margin: "-25% 0px -25% 0px",
-    amount: 0.05,
+  const scrollRef = React.useRef<HTMLDivElement | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start 95%", "end start"],
   });
 
+  const starScale = useTransform(scrollYProgress, [0, 0.3], [-0.25, 1]);
+
   return (
-    <div
-      className={`page-container services-industries ${
-        isNear ? "is-industries-bg" : ""
-      }`}
-    >
-      <Slider
+    <motion.div className="page-container services-industries">
+      <TextMask
         text="Industries"
-        tilt={-5}
-        icon={<TbIcons.TbSquareDotFilled />}
-        rows={3}
+        fontSize="20rem"
+        background="#f5f7ff"
+        scale={35}
+        scaleDirection="up"
       />
-      <div className="section-container content" ref={listRef}>
-        <div className="industries-list-container">
-          {IndustryData.map((industry, index) => (
-            <motion.div
+      <div className="section-container content" ref={scrollRef}>
+        <motion.div
+          className="industries-list-container"
+          style={{ scale: starScale }}
+        >
+          {IndustryData.map((industry) => (
+            <TextSplit
               key={industry.id}
-              className="industry-item"
-              initial={{
-                opacity: 0,
-                y: 50,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-            >
-              <h2>{industry.name}</h2>
-            </motion.div>
+              text={industry.text}
+              text2={industry.text2}
+              color="#e3e8eb"
+              fontSize="7em"
+              imageSrc={industry.image}
+            />
           ))}
-        </div>
-        <FallingCode />
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

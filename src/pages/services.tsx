@@ -11,9 +11,9 @@ const Services = () => {
   return (
     <motion.div
       className="page-container"
-      initial={{ opacity: 0, z: 100 }}
-      animate={{ opacity: 1, z: 0 }}
-      exit={{ opacity: 0, z: -100 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 1, delay: 0.75 }}
     >
       <Hero />
@@ -21,7 +21,7 @@ const Services = () => {
       <Interlude />
       <Leadership />
       <Industries />
-      <Footer />
+      <Footer background="dark" />
     </motion.div>
   );
 };

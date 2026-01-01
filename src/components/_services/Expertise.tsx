@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { capabilities } from "@/lib/CapabiltiesData";
+import ScrollText from "../text-effects/ScrollText";
+import * as MdICons from "react-icons/md";
 
 const Expertise = () => {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
@@ -21,10 +23,25 @@ const Expertise = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="left">
-            <motion.h1>My Expertise</motion.h1>
+          <div className="top">
+            <div className="left">
+              <motion.h1>
+                <span>
+                  <MdICons.MdArrowForward />
+                </span>
+                My Expertise
+              </motion.h1>
+            </div>
+            <div className="right">
+              <ScrollText
+                text="Empowering Your Vision: Turning Creative Ideas into Real Results
+                with passionate expertise."
+                fontSize="2em"
+                color="#e3e8eb"
+              />
+            </div>
           </div>
-          <div className="right">
+          <div className="bottom">
             {capabilities.map((capability) => (
               <motion.div
                 key={capability.id}

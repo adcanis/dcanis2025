@@ -1,14 +1,11 @@
 .navbar-container {
   position: fixed;
   display: flex;
-  flex-direction: column;
   align-items: stretch;
   top: 0;
   left: 0;
-  width: 72px;
-  height: 100dvh;
-  background: $background-light;
-  border-right: 1px solid $grey-light;
+  width: 100vw;
+  height: 96px;
   z-index: 999;
   @media (max-width: $layout-breakpoint-small) {
     position: fixed;
@@ -18,110 +15,193 @@
     flex-direction: row;
   }
   .logo {
-    flex: 0 0 72px;
+    position: absolute;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    border-bottom: 1px solid $grey-light;
+    left: 50px;
     font-size: 2.5em;
     font-family: $font-heavy;
     letter-spacing: 0.05em;
     transition: 0.3s ease-in-out;
     text-decoration: none;
-    color: $text;
+    mix-blend-mode: difference;
     span {
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 10px 0 0 2px;
-      color: $grey-dark;
+      mix-blend-mode: difference;
       transition: 0.3s ease-in-out;
     }
     &:hover {
       opacity: 0.88;
-      color: $grey-dark;
-
-      span {
-        color: $text;
-      }
     }
   }
-  .main-links {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-  }
-  .desktop-nav-item {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 120px;
-    border-bottom: 1px solid $grey-light;
-    text-decoration: none;
-    color: $text;
-    overflow: visible;
-    transition: 0.3s ease-in-out;
-    &:hover .nav-label {
-      opacity: 0.88;
-      color: $grey-dark;
-      transition: 0.3s ease-in-out;
-    }
-  }
-  .nav-label {
-    display: inline-block;
-    transform: rotate(90deg);
-    transform-origin: center;
-    white-space: nowrap;
-    letter-spacing: 0.12em;
-    font-family: $font-heavy;
-    font-size: 0.8rem;
-    opacity: 0.7;
-    transition: opacity 0.2s ease-out;
-  }
-  .contact-btn {
+  .menu-button {
+    position: absolute;
     cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    flex: 0 0 160px;
-    border: none;
-    padding: 0;
-    background: linear-gradient($background-grey-dark, $background-dark);
-    color: $text-light;
-    transition: 0.4s ease-in-out;
-    &:hover {
-      background: linear-gradient($yellow, $yellow-dark);
-      color: $text;
-      transition: 0.4s ease-in-out;
-    }
-    &.active {
-      background: linear-gradient($yellow, $yellow-dark);
-      color: $text;
-      &:hover {
-        background: linear-gradient($background-grey-dark, $background-dark);
-        color: $text-light;
-        transition: 0.4s ease-in-out;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    top: 10px;
+    right: 50px;
+    transition: 0.3s ease-in-out;
+    z-index: 999999;
+    .burger {
+      width: 100%;
+      &::after,
+      &::before {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 40%;
+        margin: auto;
+        background: $text;
+        box-shadow: 0 2px 1px $background-light;
+        position: relative;
+        transition: transform 0.3s;
+      }
+      &::after {
+        top: -5px;
+      }
+      &::before {
+        top: 5px;
+      }
+      &.open {
+        &::after {
+          transform: rotate(45deg);
+          top: -1px;
+          box-shadow: 2px 2px 1px $background-light;
+        }
+        &::before {
+          transform: rotate(-45deg);
+          top: 0px;
+          box-shadow: -2px 2px 1px $background-light;
+        }
       }
     }
   }
-  .contact-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    transform: rotate(90deg);
-    transform-origin: center;
-    white-space: nowrap;
-    font-family: $font-heavy;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    svg {
-      font-size: 0.9rem;
+  .fly-out {
+    position: fixed;
+    width: 33vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    background: $background-dark;
+    box-shadow: -4px 0 10px rgba($shadow, 0.25);
+    color: $text-light;
+    .menu-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      .top {
+        display: flex;
+        min-height: 20vh;
+        padding-left: 50px;
+        .social-links {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 25px;
+          & a {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            font-size: 1.15em;
+            color: $text-light;
+            transition: color 0.3s ease-in-out;
+            border-top: 1px solid rgba($background-light, 0.15);
+            border-bottom: 1px solid rgba($background-light, 0.15);
+            &:nth-child(1),
+            &:nth-child(2) {
+              border-bottom: none;
+            }
+            &:hover {
+              color: $yellow;
+              transition: color 0.3s ease-in-out;
+            }
+            & span {
+              display: flex;
+              align-items: center;
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+      .main-links {
+        display: flex;
+        flex-direction: column;
+        padding-left: 50px;
+        .desktop-nav-item {
+          display: flex;
+          flex-direction: column;
+          font-size: 4em;
+          font-family: $font-heavy;
+          line-height: 1.5em;
+          margin: 0;
+          transition: 0.3s ease-in-out;
+          & span {
+            display: block;
+            width: 85%;
+            height: 1px;
+            margin: 6px;
+            opacity: 0;
+            background: $text-light;
+            transition: opacity 0.3s ease-in-out;
+            will-change: transform;
+          }
+          &:hover {
+            opacity: 0.66;
+            transition: 0.3s ease-in-out;
+            & span {
+              opacity: 1;
+              transform: scale(1.1);
+              transition: opacity 0.3s ease-in-out;
+            }
+          }
+        }
+      }
+      .bottom {
+        display: flex;
+        padding-left: 50px;
+        padding-bottom: 25px;
+        border-top: 1px solid rgba($background-light, 0.15);
+        & a {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 10px;
+          font-size: 1.5em;
+          transition: color 0.3s ease-in-out;
+          color: $text-light;
+          & span {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 0.66em;
+            color: $yellow;
+          }
+          &:hover {
+            color: $yellow;
+            transition: color 0.3s ease-in-out;
+          }
+        }
+      }
     }
+  }
+  .svg-curve {
+    position: absolute;
+    top: 0;
+    left: -99px;
+    width: 100px;
+    height: 100%;
+    fill: $background-dark;
+    stroke: none;
   }
 }

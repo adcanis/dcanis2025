@@ -1,0 +1,65 @@
+.about-awards {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: $background-light;
+    .inner-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      min-height: 100dvh;
+      padding-top: 150px;
+      padding-bottom: 150pxs;
+      .top {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 100px;
+        .left,
+        .right {
+          display: flex;
+          align-items: flex-start;
+        }
+        .left {
+          width: 40%;
+          h1 {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-family: $font-heavy;
+            font-size: 1em;
+            line-height: 0.95em;
+            & span {
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+        .right {
+          width: 60%;
+          color: $text-light;
+          & p {
+            width: 80%;
+            font-size: 2em;
+            margin: 0;
+          }
+        }
+      }
+      .bottom {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+        margin-top: 25vh;
+      }
+    }
+  }
+}

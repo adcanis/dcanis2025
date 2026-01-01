@@ -2,6 +2,7 @@ import React from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import LeadershipAnimation from "@/assets/lottie/design.json";
+import * as MdICons from "react-icons/md";
 
 const Interlude = () => {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
@@ -30,17 +31,20 @@ const Interlude = () => {
         >
           <div className="left" />
           <div className="right">
-            <p>My Belief</p>
-            <h2>
+            <motion.h1>
+              <span>
+                <MdICons.MdArrowForward />
+              </span>
+              My Belief
+            </motion.h1>
+            <p>
               Leadership is clarity. No noise. No ego. No bullsh*t. I believe
               high-performing teams don’t need control — they need direction. My
               job is to remove ambiguity, align strategy with execution, and
               give people the context and confidence to do their best work.
-            </h2>
-            <h2>
               Clear purpose creates confident teams, predictable outcomes, and
               products that actually move organizations forward.
-            </h2>
+            </p>
             <Lottie
               className="animation"
               lottieRef={lottieRef}
@@ -50,9 +54,21 @@ const Interlude = () => {
           </div>
           <motion.h1
             className="slogan"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial={{
+              opacity: 0,
+              clipPath: "inset(0% 0% 100% 0%)",
+              y: 150,
+            }}
+            whileInView={{
+              opacity: 1,
+              clipPath: "inset(0% 0% 0% 0%)",
+              y: 0,
+            }}
+            transition={{
+              duration: 0.88,
+              delay: 0.33,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
           >
             No Bullsh*t
           </motion.h1>

@@ -28,7 +28,7 @@ const Home = () => {
     <div ref={containerRef} className="page-container">
       <Hero />
 
-      <Footer />
+      <Footer background="light" />
     </div>
   );
 };

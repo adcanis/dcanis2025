@@ -3,9 +3,11 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 interface ScrollTextProps {
   text: string;
+  fontSize?: string;
+  color?: string;
 }
 
-const ScrollText = ({ text }: ScrollTextProps) => {
+const ScrollText = ({ text, fontSize, color }: ScrollTextProps) => {
   const container = React.useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({
@@ -16,7 +18,11 @@ const ScrollText = ({ text }: ScrollTextProps) => {
   const words = text.split(" ");
 
   return (
-    <p ref={container} className="scroll-text">
+    <p
+      ref={container}
+      className="scroll-text"
+      style={{ color: color || "#0b090a" }}
+    >
       {words.map((word, i) => {
         const start = i / words.length;
         const end = start + 1 / words.length;

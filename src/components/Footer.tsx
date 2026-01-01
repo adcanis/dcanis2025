@@ -5,9 +5,19 @@ import { motion } from "framer-motion";
 import Sig from "@/assets/sig.png";
 import { socialLinks } from "@/lib/socialLinkData";
 
-const Footer = () => {
+interface FooterProps {
+  background: "light" | "dark";
+}
+
+const Footer = ({ background }: FooterProps) => {
   return (
-    <motion.footer className="page-container footer">
+    <motion.footer
+      className="page-container footer"
+      id={background}
+      initial={{ y: -100 }}
+      whileInView={{ y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="section-container footer-content">
         <motion.div
           className="top"
