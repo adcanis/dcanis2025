@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import Hero from "@/components/_about/Hero";
 import Summary from "@/components/_about/Summary";
-import Mission from "@/components/_about/Mission";
 import WhoIAm from "@/components/_about/WhoIAm";
-import Footer from "@/components/Footer";
 import Awards from "@/components/_about/Awards";
+import Footer from "@/components/Footer";
+import ContactCard from "@/components/ContactCard";
 
 const About = () => {
   return (
@@ -20,8 +20,8 @@ const About = () => {
       <Summary />
       <WhoIAm />
       <Awards />
-      <Mission />
-      <Footer background="light" />
+      <ContactCard />
+      <Footer />
     </motion.div>
   );
 };

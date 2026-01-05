@@ -5,6 +5,7 @@ import Expertise from "@/components/_services/Expertise";
 import Interlude from "@/components/_services/Interlude";
 import Leadership from "@/components/_services/Leadership";
 import Industries from "@/components/_services/Industries";
+import ContactCard from "@/components/ContactCard";
 import Footer from "@/components/Footer";
 
 const Services = () => {
@@ -21,7 +22,8 @@ const Services = () => {
       <Interlude />
       <Leadership />
       <Industries />
-      <Footer background="dark" />
+      <ContactCard />
+      <Footer />
     </motion.div>
   );
 };

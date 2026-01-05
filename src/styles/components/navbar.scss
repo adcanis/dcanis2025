@@ -146,24 +146,9 @@
           line-height: 1.5em;
           margin: 0;
           transition: 0.3s ease-in-out;
-          & span {
-            display: block;
-            width: 85%;
-            height: 1px;
-            margin: 6px;
-            opacity: 0;
-            background: $text-light;
-            transition: opacity 0.3s ease-in-out;
-            will-change: transform;
-          }
           &:hover {
             opacity: 0.66;
             transition: 0.3s ease-in-out;
-            & span {
-              opacity: 1;
-              transform: scale(1.1);
-              transition: opacity 0.3s ease-in-out;
-            }
           }
         }
       }

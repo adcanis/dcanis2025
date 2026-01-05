@@ -42,19 +42,3 @@
     }
   }
 }
-#light {
-  background: $background-light;
-  & img {
-    opacity: 1;
-    filter: brightness(33%);
-  }
-  & p,
-  a {
-    color: $text;
-    transition: color 0.3s ease-in-out;
-    &:hover {
-      color: $grey-dark;
-      transition: color 0.3s ease-in-out;
-    }
-  }
-}

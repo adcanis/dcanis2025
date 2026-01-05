@@ -11,10 +11,10 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    background: $background-light;
-    border: 2px solid $light;
+    background: $light;
     border-radius: 50%;
-    padding: 25px;
+    box-shadow: 0 0 5px rgba($shadow, 0.5);
+    padding: 10px;
     & img {
       pointer-events: none;
     }

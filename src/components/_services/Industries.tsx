@@ -1,8 +1,10 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Industries as IndustryData } from "@/lib/IndustryData";
-import TextMask from "../text-effects/TextMask";
 import TextSplit from "../text-effects/TextSplit";
+import Slider from "../Slider";
+import TextMask from "../text-effects/TextMask";
+import { GoDotFill } from "react-icons/go";
 
 const Industries = () => {
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
@@ -16,13 +18,7 @@ const Industries = () => {
 
   return (
     <motion.div className="page-container services-industries">
-      <TextMask
-        text="Industries"
-        fontSize="20rem"
-        background="#f5f7ff"
-        scale={35}
-        scaleDirection="up"
-      />
+      <Slider text="Industries" tilt={-2} rows={2} icon={<GoDotFill />} />
       <div className="section-container content" ref={scrollRef}>
         <motion.div
           className="industries-list-container"
@@ -33,7 +29,7 @@ const Industries = () => {
               key={industry.id}
               text={industry.text}
               text2={industry.text2}
-              color="#e3e8eb"
+              color="#0b090a"
               fontSize="7em"
               imageSrc={industry.image}
             />

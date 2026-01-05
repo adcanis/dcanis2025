@@ -5,15 +5,10 @@ import { motion } from "framer-motion";
 import Sig from "@/assets/sig.png";
 import { socialLinks } from "@/lib/socialLinkData";
 
-interface FooterProps {
-  background: "light" | "dark";
-}
-
-const Footer = ({ background }: FooterProps) => {
+const Footer = () => {
   return (
     <motion.footer
       className="page-container footer"
-      id={background}
       initial={{ y: -100 }}
       whileInView={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
