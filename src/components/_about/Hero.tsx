@@ -18,11 +18,11 @@ const Hero = () => {
       <motion.div style={{ y }} className="content">
         <div className="text-container">
           <h1 className="hero-title">
-            Diki
+            T
             <motion.span className="oo star" style={{ scale: starScale }}>
-              an
+              he
             </motion.span>
-            idis
+            Work
           </h1>
         </div>
       </motion.div>

@@ -36,9 +36,23 @@
     .bottom {
       margin-top: -256px;
     }
-    & p {
+    .copyright {
+      display: flex;
+      align-items: center;
       margin-top: 50px;
-      opacity: 0.66;
+      padding-bottom: 25px;
+      & p,
+      a {
+        opacity: 0.66;
+      }
+      & a {
+        margin-left: 10px;
+        transition: opacity 0.3s ease-in-out;
+        &:hover {
+          opacity: 1;
+          transition: opacity 0.3s ease-in-out;
+        }
+      }
     }
   }
 }

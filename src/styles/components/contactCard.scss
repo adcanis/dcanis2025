@@ -3,6 +3,7 @@
   min-height: 100dvh;
   width: 100%;
   overflow: hidden;
+  z-index: 1;
   .content {
     display: flex;
     justify-content: center;

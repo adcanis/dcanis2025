@@ -1,0 +1,13 @@
+.home-about-container {
+  position: relative;
+  height: fit-content;
+  width: 100%;
+  z-index: 0;
+  .horizontal-section-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    background: $background-dark;
+    z-index: 1;
+  }
+}

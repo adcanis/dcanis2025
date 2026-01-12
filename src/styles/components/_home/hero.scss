@@ -1,4 +1,4 @@
-.about-hero {
+.home-hero {
   position: relative;
   justify-content: center;
   align-items: center;
@@ -33,7 +33,7 @@
         margin: 0;
         white-space: nowrap;
         line-height: 0.6;
-        color: $text;
+        // color: $light;
         text-shadow: -5px -5px 2px rgba($shadow, 0.15);
         .kicker {
           position: absolute;
@@ -46,7 +46,7 @@
         .oo {
           position: relative;
           &::before {
-            content: "Behind";
+            content: "Andrew";
             position: absolute;
             left: 50%;
             transform: translateX(-50%);

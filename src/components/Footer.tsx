@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "@/utils/LenisLink";
 import Sig from "@/assets/sig.png";
 import { socialLinks } from "@/lib/socialLinkData";
 
@@ -40,10 +40,15 @@ const Footer = () => {
             </Link>
           ))}
         </div>
-        <p>
-          &copy;{new Date().getFullYear()} Andrew Dikianidis. All rights
-          reserved.
-        </p>
+        <div className="copyright">
+          <p>
+            &copy;{new Date().getFullYear()} Andrew Dikianidis. All rights
+            reserved.
+          </p>
+          <Link href="/credits" className="credits-link">
+            Credits
+          </Link>
+        </div>
       </div>
     </motion.footer>
   );

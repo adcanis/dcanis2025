@@ -1,0 +1,20 @@
+.credits-content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-height: 100dvh;
+  padding-top: 100px;
+  & a {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+  .credits-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88em;
+    & p {
+      margin: 0;
+    }
+  }
+}

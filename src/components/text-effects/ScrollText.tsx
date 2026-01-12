@@ -21,7 +21,7 @@ const ScrollText = ({ text, fontSize, color }: ScrollTextProps) => {
     <p
       ref={container}
       className="scroll-text"
-      style={{ color: color || "#0b090a" }}
+      style={{ color: color || "#0b090a", fontSize: fontSize || "" }}
     >
       {words.map((word, i) => {
         const start = i / words.length;

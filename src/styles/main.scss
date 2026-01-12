@@ -50,6 +50,11 @@
 @import "./components/_about/whoIam.scss";
 
 // home
+@import "./components/_home/hero.scss";
+@import "./components/_home/about.scss";
+@import "./components/_home/mission.scss";
+@import "./components/_home/intro.scss";
+@import "./components/_home/services.scss";
 
 // services
 @import "./components/_services/hero.scss";
@@ -60,5 +65,4 @@
 
 // Pages
 @import "./pages/_default.scss";
-@import "./pages/privacy.scss";
-@import "./pages/terms.scss";
+@import "./pages/credits.scss";

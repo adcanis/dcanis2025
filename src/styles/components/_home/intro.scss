@@ -1,0 +1,40 @@
+.home-intro-container {
+  position: relative;
+  min-height: 100dvh;
+  height: 100%;
+  width: 100%;
+  background: $background-dark;
+  overflow: visible;
+  z-index: 1;
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    z-index: 1;
+    .inner-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding-bottom: 150px;
+      & p {
+        justify-content: center;
+        font-size: 4em;
+        font-family: $font-heavy;
+      }
+      & a {
+        font-size: 1.2rem;
+        color: $yellow-dark;
+        & span {
+          font-family: $font-heavy;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
