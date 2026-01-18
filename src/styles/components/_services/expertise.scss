@@ -10,12 +10,6 @@
     width: 100%;
     height: 100%;
     background: $background-dark;
-    background: radial-gradient(
-      circle,
-      rgba($background-grey-dark, 1) 0%,
-      rgba($background-grey-dark, 1) 50%,
-      rgba($background-dark, 1) 100%
-    );
     .inner-container {
       position: relative;
       display: flex;

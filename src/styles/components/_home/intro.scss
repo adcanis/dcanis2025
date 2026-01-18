@@ -26,6 +26,14 @@
         justify-content: center;
         font-size: 4em;
         font-family: $font-heavy;
+        @media (max-width: $layout-breakpoint-small) {
+          font-size: 2.75em;
+          width: 80%;
+        }
+        @media (max-width: $layout-breakpoint-xsmall) {
+          font-size: 1.5em;
+          width: 80%;
+        }
       }
       & a {
         font-size: 1.2rem;

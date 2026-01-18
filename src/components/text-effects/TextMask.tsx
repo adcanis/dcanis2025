@@ -6,6 +6,7 @@ interface TextMaskProps {
   text: string;
   fontSize: string;
   background: string;
+  color?: string;
   scale: number;
   scaleDirection: "up" | "down";
 }
@@ -14,6 +15,7 @@ const TextMask = ({
   text,
   fontSize,
   background,
+  color = "#0b090a",
   scale,
   scaleDirection,
 }: TextMaskProps) => {
@@ -43,7 +45,9 @@ const TextMask = ({
       }}
     >
       <div className="text-mask-container" style={{ background }}>
-        <motion.h1 style={{ scale: starScale, fontSize }}>{text}</motion.h1>
+        <motion.h1 style={{ scale: starScale, fontSize, color }}>
+          {text}
+        </motion.h1>
       </div>
     </motion.div>
   );

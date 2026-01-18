@@ -21,6 +21,12 @@
         margin-bottom: 25px;
         opacity: 0.33;
         pointer-events: none;
+        @media (max-width: $layout-breakpoint-small) {
+          width: 66%;
+        }
+        @media (max-width: $layout-breakpoint-xsmall) {
+          width: 100%;
+        }
       }
       & a {
         font-size: 2em;
@@ -35,15 +41,34 @@
     }
     .bottom {
       margin-top: -256px;
+      @media (max-width: $layout-breakpoint-reg) {
+        margin-top: -300px;
+      }
+      @media (max-width: $layout-breakpoint-small) {
+        gap: 25px;
+        margin-top: -175px;
+      }
+      @media (max-width: $layout-breakpoint-xsmall) {
+        margin-top: -88px;
+      }
     }
     .copyright {
       display: flex;
       align-items: center;
       margin-top: 50px;
       padding-bottom: 25px;
+      @media (max-width: $layout-breakpoint-reg) {
+        padding-bottom: 50px;
+      }
+      @media (max-width: $layout-breakpoint-xsmall) {
+        padding-bottom: 0;
+      }
       & p,
       a {
         opacity: 0.66;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          font-size: 0.5em;
+        }
       }
       & a {
         margin-left: 10px;

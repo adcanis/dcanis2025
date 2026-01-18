@@ -49,6 +49,9 @@
     right: 50px;
     transition: 0.3s ease-in-out;
     z-index: 999999;
+    @media (max-width: $layout-breakpoint-small) {
+      right: 25px;
+    }
     .burger {
       width: 100%;
       &::after,
@@ -92,6 +95,12 @@
     background: $background-dark;
     box-shadow: -4px 0 10px rgba($shadow, 0.25);
     color: $text-light;
+    @media (max-width: $layout-breakpoint-medium) {
+      width: 50vw;
+    }
+    @media (max-width: $layout-breakpoint-xsmall) {
+      width: 100vw;
+    }
     .menu-content {
       position: relative;
       display: flex;
@@ -105,6 +114,9 @@
         display: flex;
         min-height: 20vh;
         padding-left: 50px;
+        @media (max-width: $layout-breakpoint-small) {
+          padding-left: 25px;
+        }
         .social-links {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
@@ -118,6 +130,9 @@
             transition: color 0.3s ease-in-out;
             border-top: 1px solid rgba($background-light, 0.15);
             border-bottom: 1px solid rgba($background-light, 0.15);
+            @media (max-width: $layout-breakpoint-small) {
+              font-size: 0.88em;
+            }
             &:nth-child(1),
             &:nth-child(2) {
               border-bottom: none;
@@ -157,6 +172,9 @@
         padding-left: 50px;
         padding-bottom: 25px;
         border-top: 1px solid rgba($background-light, 0.15);
+        @media (max-width: $layout-breakpoint-small) {
+          padding-left: 25px;
+        }
         & a {
           display: flex;
           flex-direction: column;
@@ -165,6 +183,9 @@
           font-size: 1.5em;
           transition: color 0.3s ease-in-out;
           color: $text-light;
+          @media (max-width: $layout-breakpoint-small) {
+            font-size: 1em;
+          }
           & span {
             display: flex;
             align-items: center;

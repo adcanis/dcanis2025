@@ -4,6 +4,9 @@
   width: 100%;
   overflow: hidden;
   z-index: 1;
+  @media (max-width: $layout-breakpoint-xsmall) {
+    min-height: fit-content;
+  }
   .content {
     display: flex;
     justify-content: center;
@@ -30,11 +33,17 @@
       min-height: 100dvh;
       padding-top: 100px;
       padding-bottom: 100px;
+      @media (max-width: $layout-breakpoint-xsmall) {
+        min-height: 66dvh;
+      }
       .text-line {
         position: relative;
         display: flex;
         align-items: center;
         width: 66%;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          width: 100%;
+        }
         &:first-child {
           justify-content: flex-start;
         }
@@ -46,6 +55,15 @@
           font-family: $font-heavy;
           margin: 0;
           text-shadow: -5px -5px 2px rgba($shadow, 0.15);
+          @media (max-width: $layout-breakpoint-reg) {
+            font-size: 5em;
+          }
+          @media (max-width: $layout-breakpoint-small) {
+            font-size: 4em;
+          }
+          @media (max-width: $layout-breakpoint-xsmall) {
+            font-size: 2em;
+          }
           & span {
             color: $yellow-dark;
           }
@@ -74,6 +92,11 @@
         height: 1px;
         margin-top: 25px;
         background: $background-dark;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          margin-top: 75px;
+          width: 120%;
+          left: -50px;
+        }
         .calendly-link {
           position: relative;
           display: flex;
@@ -84,11 +107,24 @@
           background: $yellow-dark;
           border-radius: 50%;
           padding: 25px;
-          transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+          transition:
+            background 0.3s ease-in-out,
+            transform 0.3s ease-in-out;
           &:hover {
             background: darken($yellow-dark, 5%);
             transform: scale(1.05);
-            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transition:
+              background 0.3s ease-in-out,
+              transform 0.3s ease-in-out;
+          }
+          @media (max-width: $layout-breakpoint-small) {
+            height: 150px;
+            width: 150px;
+          }
+          @media (max-width: $layout-breakpoint-xsmall) {
+            text-align: center;
+            height: 85px;
+            width: 85px;
           }
         }
       }
@@ -97,6 +133,11 @@
         align-items: center;
         gap: 25px;
         margin-top: 50px;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          flex-direction: column;
+          gap: 15px;
+          margin-top: 75px;
+        }
         & a {
           display: flex;
           justify-content: center;
@@ -108,6 +149,12 @@
           transition: background 0.3s ease-in-out;
           &:hover {
             transition: background 0.3s ease-in-out;
+          }
+          @media (max-width: $layout-breakpoint-small) {
+            height: 36px;
+          }
+          @media (max-width: $layout-breakpoint-xsmall) {
+            width: 95%;
           }
         }
       }

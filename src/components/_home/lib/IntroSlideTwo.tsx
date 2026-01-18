@@ -14,7 +14,7 @@ const IntroSlideTwo = () => {
       }}
     >
       <div className="mission-content second">
-        <h1 id="middle">ZERO</h1>
+        <h1 id="middle">NO</h1>
       </div>
     </motion.div>
   );

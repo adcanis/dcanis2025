@@ -16,7 +16,7 @@ const Expertise = () => {
 
   return (
     <div className="page-container services-expertise" ref={containerRef}>
-      <motion.div style={{ y }} className="content">
+      <motion.div className="content">
         <motion.div
           className="inner-container"
           initial={{ opacity: 0, y: 50 }}
@@ -34,8 +34,7 @@ const Expertise = () => {
             </div>
             <div className="right">
               <ScrollText
-                text="Empowering Your Vision: Turning Creative Ideas into Real Results
-                with passionate expertise."
+                text="Building robust, scalable systems through modern architecture, engineering excellence, and strategic technical leadership that drives measurable business impact."
                 fontSize="2em"
                 color="#e3e8eb"
               />

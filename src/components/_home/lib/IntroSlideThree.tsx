@@ -14,7 +14,9 @@ const IntroSlideThree = () => {
       }}
     >
       <div className="mission-content third">
-        <h1 id="name">COMPROMISE</h1>
+        <h1 id="name">
+          BULLSH<span>*</span>T
+        </h1>
       </div>
     </motion.div>
   );

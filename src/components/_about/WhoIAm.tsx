@@ -29,8 +29,8 @@ const WhoIAm = () => {
       <div className="section-container content" ref={scrollRef}>
         <motion.div className="about-intro" style={{ scale: starScale }}>
           <div className="about-intro-text">
-            <span id="quote">{'"'}</span>I{"'"}m a builder first - of systems,
-            teams and ideas that actually work. With
+            <span id="quote">{'"'}</span>I{"'"}m a builder first. Building
+            systems, teams and ideas that actually work. With
             <span
               id="intro-hover-point"
               onMouseEnter={() => setShowIntroClip(true)}
@@ -46,7 +46,7 @@ const WhoIAm = () => {
               </span>
             </span>{" "}
             in development and leadership, I don{"'"}t chase trends or noise. I
-            focus on clarity, execution and outcomes.
+            focus on execution and outcomes.
             <span id="quote">{'"'}</span>
           </div>
         </motion.div>

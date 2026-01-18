@@ -12,20 +12,30 @@
     background: $background-dark;
     font-family: $font-heavy;
     color: $text-light;
+    @media (max-width: $layout-breakpoint-xsmall) {
+      justify-content: flex-start;
+    }
     & h1 {
       font-size: 40em;
+      @media (max-width: $layout-breakpoint-small) {
+        font-size: 25em;
+      }
+      @media (max-width: $layout-breakpoint-xsmall) {
+        font-size: 15em;
+      }
+      & span {
+        color: $yellow-dark;
+      }
     }
     & p {
       justify-content: center;
+      @media (max-width: $layout-breakpoint-small) {
+        width: 60%;
+      }
+      @media (max-width: $layout-breakpoint-xsmall) {
+        width: 40%;
+        margin-left: 25px;
+      }
     }
   }
-  //   .first {
-  //     background: $background-light;
-  //   }
-  //   .second {
-  //     background: linear-gradient(to right, $background-light, $background-grey);
-  //   }
-  //   .third {
-  //     background: $background-grey;
-  //   }
 }

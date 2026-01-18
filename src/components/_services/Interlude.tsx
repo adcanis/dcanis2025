@@ -38,8 +38,8 @@ const Interlude = () => {
               My Belief
             </motion.h1>
             <p>
-              Leadership is clarity. No noise. No ego. No bullsh*t. I believe
-              high-performing teams don’t need control — they need direction. My
+              Leadership is no noise. No ego. No bullsh*t. I believe
+              high-performing teams don’t need control, they need direction. My
               job is to remove ambiguity, align strategy with execution, and
               give people the context and confidence to do their best work.
               Clear purpose creates confident teams, predictable outcomes, and
@@ -60,7 +60,7 @@ const Interlude = () => {
               y: 150,
             }}
             whileInView={{
-              opacity: 1,
+              opacity: 0.33,
               clipPath: "inset(0% 0% 0% 0%)",
               y: 0,
             }}
@@ -70,7 +70,7 @@ const Interlude = () => {
               ease: [0.25, 0.1, 0.25, 1],
             }}
           >
-            No Bullsh*t
+            No Noise
           </motion.h1>
         </motion.div>
       </motion.div>

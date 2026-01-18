@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Head from "next/head";
 import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import Lenis from "lenis";
@@ -21,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
       lenis?.raf(time);
       requestAnimationFrame(raf);
     },
-    [lenis]
+    [lenis],
   );
 
   React.useEffect(() => {
@@ -34,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
           syncTouch: true,
           smoothWheel: true,
           duration: 3.5,
-        })
+        }),
       );
     }
 
@@ -48,6 +49,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <AppContext.Provider value={{ lenis }}>
       <main className="App">
+        <Head>
+          <title>Andrew Dikianidis</title>
+          <meta
+            name="description"
+            content="Andrew Dikianidis - Your digital solutions partner"
+          />
+          <link rel="icon" href="/favicon.jpg" />
+        </Head>
         {!isLoading ? (
           <div data-scroll-container className="scroll-container">
             <Navbar />

@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Industries as IndustryData } from "@/lib/IndustryData";
 import TextSplit from "../text-effects/TextSplit";
 import Slider from "../Slider";
-import TextMask from "../text-effects/TextMask";
 import { GoDotFill } from "react-icons/go";
 
 const Industries = () => {

@@ -1,17 +1,9 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
-import presentAnimation from "@/assets/lottie/development.json";
+import BioTwo from "@/assets/cap-strat.png";
 
 const BioSlideThree = () => {
-  const lottieRef = React.useRef<LottieRefCurrentProps>(null);
-
-  React.useEffect(() => {
-    if (lottieRef.current) {
-      lottieRef.current.setSpeed(0.15);
-    }
-  }, []);
-
   return (
     <motion.div
       className="bio-info-container"
@@ -30,22 +22,31 @@ const BioSlideThree = () => {
             whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
             transition={{ duration: 0.6, delay: 0.15, ease: "easeInOut" }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut
-            consectetur ante. Vivamus ultricies molestie imperdiet. Nulla
-            facilisi. Sed maximus enim tincidunt, mattis nisl vel, fringilla
-            lectus. Vivamus magna turpis, tincidunt sit amet augue ac, aliquam
-            pellentesque augue. Cras lorem elit, pulvinar eget pharetra id,
-            tincidunt at nibh. Vestibulum facilisis quis nunc id rutrum.
+            I’ve spent most of my career inside large systems, growing teams,
+            unclear requirements, and decisions made under pressure. Over time,
+            I{"'"}ve learned that most problems aren’t technical. They’re
+            <span>structural</span>.
+            <br />
+            When systems fail, it’s rarely because of bad code, it’s because
+            direction was unclear, ownership was missing, or decisions were
+            avoided. My instinct is always the same. Step back, find the signal,
+            and simplify before moving forward.
           </motion.p>
         </div>
-        <div className="right">
-          <Lottie
-            lottieRef={lottieRef}
-            className="bio-animation"
-            animationData={presentAnimation}
-            loop={true}
+        <motion.div
+          className="right"
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeInOut" }}
+        >
+          <Image
+            className="bio-image"
+            src={BioTwo.src}
+            alt="bio photo two"
+            width={1920}
+            height={1080}
           />
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );

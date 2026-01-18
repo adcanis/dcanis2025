@@ -4,7 +4,7 @@ import Hero from "@/components/_services/Hero";
 import Expertise from "@/components/_services/Expertise";
 import Interlude from "@/components/_services/Interlude";
 import Leadership from "@/components/_services/Leadership";
-import Industries from "@/components/_services/Industries";
+import FAQ from "@/components/_services/FAQ";
 import ContactCard from "@/components/ContactCard";
 import Footer from "@/components/Footer";
 
@@ -21,7 +21,7 @@ const Services = () => {
       <Expertise />
       <Interlude />
       <Leadership />
-      <Industries />
+      <FAQ />
       <ContactCard />
       <Footer />
     </motion.div>

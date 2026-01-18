@@ -33,6 +33,6 @@ export const leadershipApproach = [
     id: "06",
     name: "Deliver With Discipline",
     description:
-      "I believe in disciplined execution—roadmapping, sequencing, sprint planning, and maintaining high standards of quality. The result is predictable delivery without sacrificing innovation.",
+      "I believe in disciplined execution roadmapping, sequencing, sprint planning, and maintaining high standards of quality. The result is predictable delivery without sacrificing innovation.",
   },
 ];

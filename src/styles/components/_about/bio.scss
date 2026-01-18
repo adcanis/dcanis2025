@@ -26,17 +26,31 @@
         color: $text-light;
         width: 60%;
         line-height: 1.5em;
+        text-shadow: 0 0 2px $text-shadow;
+        & span {
+          color: $yellow-dark;
+          margin-left: 0.25em;
+        }
       }
     }
     .right {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 40%;
       opacity: 0.5;
+      overflow: hidden;
+      .bio-image {
+        height: 50dvh;
+        object-fit: contain;
+        filter: grayscale(100%);
+        opacity: 0.66;
+      }
       .bio-animation {
         width: 66%;
         height: auto;
+        filter: grayscale(100%);
       }
     }
   }
