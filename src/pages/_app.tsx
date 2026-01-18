@@ -14,7 +14,7 @@ export const AppContext = React.createContext<{
 
 export default function App({ Component, pageProps }: AppProps) {
   const [lenis, setLenis] = React.useState<Lenis | null>(null);
-
+  const [screenSize, setScreenSize] = React.useState<number>(window.innerWidth);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   const raf = React.useCallback(
@@ -26,10 +26,23 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 
   React.useEffect(() => {
+    const updateSize = () => {
+      setScreenSize(window.innerWidth);
+    };
+
+    updateSize();
+    window.addEventListener("resize", updateSize);
+
+    return () => {
+      window.removeEventListener("resize", updateSize);
+    };
+  }, []);
+
+  React.useEffect(() => {
     if (!lenis) {
       setLenis(
         new Lenis({
-          lerp: 0.015,
+          lerp: screenSize >= 768 ? 0.015 : 0.1,
           wheelMultiplier: 0.4,
           touchMultiplier: 0.6,
           syncTouch: true,
@@ -44,7 +57,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return () => {
       lenis?.destroy();
     };
-  }, [lenis, raf]);
+  }, [lenis, raf, screenSize]);
 
   return (
     <AppContext.Provider value={{ lenis }}>
