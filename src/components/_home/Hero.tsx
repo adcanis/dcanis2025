@@ -1,12 +1,9 @@
 import React from "react";
+import Image from "next/image";
 import { useScroll, useTransform, motion } from "framer-motion";
 import PixelBG from "../PixelBG";
-import { GoArrowDownRight } from "react-icons/go";
-import Slider from "../Slider";
 import Logo from "@/assets/logo.jpg";
-import { GoDotFill } from "react-icons/go";
-import Image from "next/image";
-import CurvedText from "../text-effects/CurvedText";
+import { GoArrowDownRight } from "react-icons/go";
 
 const Hero = () => {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
@@ -53,7 +50,11 @@ const Hero = () => {
           style={{ scale: screenSize >= 768 ? starScale : 1 }}
         >
           <span>
-            <GoArrowDownRight />
+            {screenSize >= 768 ? (
+              <GoArrowDownRight />
+            ) : (
+              <Image src={Logo.src} alt="Logo" width={115} height={115} />
+            )}
           </span>
           <p>Build. Lead.</p>
           <p>Deliver.</p>
@@ -67,11 +68,7 @@ const Hero = () => {
               </motion.span>
               idis
             </h1>
-          ) : (
-            <div className="hero-title mobile">
-              <Image src={Logo.src} alt="Logo" width={115} height={115} />
-            </div>
-          )}
+          ) : null}
         </div>
       </motion.div>
     </div>

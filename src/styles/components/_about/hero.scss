@@ -14,6 +14,24 @@
     mix-blend-mode: multiply;
     opacity: 1;
     z-index: 0;
+    @media (max-width: $layout-breakpoint-small) {
+      display: none;
+    }
+  }
+  .slogan {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    font-size: 5.5em;
+    font-family: $font-heavy;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateY(-50%);
+    & p {
+      margin: 0;
+    }
   }
   .content {
     position: relative;
@@ -35,6 +53,30 @@
         line-height: 0.6;
         color: $text;
         text-shadow: -5px -5px 2px rgba($shadow, 0.15);
+        @media (max-width: $layout-breakpoint-xxlarge) {
+          font-size: 38em;
+          left: -66px;
+        }
+        @media (max-width: $layout-breakpoint-large) {
+          font-size: 28em;
+          left: -60px;
+        }
+        @media (max-width: $layout-breakpoint-reg) {
+          font-size: 22.5em;
+          left: -66px;
+        }
+        @media (max-width: $layout-breakpoint-medium) {
+          font-size: 20.5em;
+        }
+        @media (max-width: $layout-breakpoint-small) {
+          font-size: 16em;
+          left: -50px;
+          text-shadow: none;
+        }
+        @media (max-width: $layout-breakpoint-xsmall) {
+          font-size: 7.5em;
+          left: -50px;
+        }
         .kicker {
           position: absolute;
           margin: 0;
@@ -57,6 +99,9 @@
             text-transform: uppercase;
             text-shadow: none;
             color: $light;
+            @media (max-width: $layout-breakpoint-xsmall) {
+              display: none;
+            }
           }
         }
         .star {

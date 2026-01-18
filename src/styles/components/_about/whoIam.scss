@@ -3,6 +3,27 @@
   height: fit-content;
   width: 100%;
   z-index: 0;
+  .mobile-who-i-am-intro-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: $background-dark;
+    color: $text-light;
+    padding-top: 100px;
+    h1 {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      margin-left: 25px;
+      font-family: $font-heavy;
+      font-size: 1em;
+      line-height: 0.95em;
+      & span {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
   .content {
     display: flex;
     flex-direction: column;
@@ -10,6 +31,9 @@
     align-items: center;
     width: 100%;
     height: fit-content;
+    @media (max-width: $layout-breakpoint-xsmall) {
+      background: $background-dark;
+    }
     .about-intro {
       position: relative;
       justify-content: center;
@@ -20,6 +44,11 @@
       padding-bottom: 5vh;
       background: $background-dark;
       z-index: 0;
+      @media (max-width: $layout-breakpoint-xsmall) {
+        min-height: none;
+        margin-top: 0;
+        min-height: fit-content;
+      }
       .about-intro-text {
         text-align: center;
         width: 50%;
@@ -27,6 +56,11 @@
         font-size: 4.5em;
         font-family: $font-heavy;
         color: $text-light;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          font-size: 2em;
+          width: 90%;
+          margin-top: 50px;
+        }
         #quote {
           color: $yellow-dark;
         }
@@ -88,5 +122,11 @@
     width: 100%;
     background: $background-dark;
     z-index: 1;
+  }
+  .mobile-who-i-am-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: $background-dark;
   }
 }

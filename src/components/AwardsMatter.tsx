@@ -12,6 +12,7 @@ import Matter, {
 import { AwardsData } from "@/lib/AwardsData";
 
 const awardSizes = [124, 156, 200, 224, 256];
+const mobileAwardSizes = [64, 80, 96, 112, 128];
 
 const getRandomizedAwards = () => {
   const shuffled = [...AwardsData];
@@ -29,20 +30,31 @@ const AwardsMatter = () => {
   const rafRef = React.useRef<number | null>(null);
   const mouseConstraintRef = React.useRef<MouseConstraint | null>(null);
   const lastTimeRef = React.useRef(0);
+  const [screenSize, setScreenSize] = React.useState<number>(window.innerWidth);
 
   const randomizedAwards = React.useMemo(() => getRandomizedAwards(), []);
 
   const frozeRef = React.useRef(false);
   const settledForMsRef = React.useRef(0);
-  const STOP_AFTER_SETTLED_MS = 600;
-  const SETTLED_SPEED = 0.06;
-  const SETTLED_ANGULAR = 0.06;
 
   const [ready, setReady] = React.useState(false);
   const [inView, setInView] = React.useState(false);
   const [awardRefs] = React.useState<(HTMLDivElement | null)[]>(
-    new Array(AwardsData.length).fill(null)
+    new Array(AwardsData.length).fill(null),
   );
+
+  React.useEffect(() => {
+    const updateSize = () => {
+      setScreenSize(window.innerWidth);
+    };
+
+    updateSize();
+    window.addEventListener("resize", updateSize);
+
+    return () => {
+      window.removeEventListener("resize", updateSize);
+    };
+  }, []);
 
   React.useEffect(() => {
     const container = playgroundRef.current;
@@ -55,7 +67,7 @@ const AwardsMatter = () => {
       {
         threshold: 0,
         rootMargin: "0px 0px -10% 0px",
-      }
+      },
     );
 
     observer.observe(container);
@@ -116,7 +128,8 @@ const AwardsMatter = () => {
     const bodies: Body[] = [];
 
     randomizedAwards.forEach((_, index) => {
-      const size = awardSizes[index % awardSizes.length] ?? 85;
+      const sizes = screenSize <= 1100 ? mobileAwardSizes : awardSizes;
+      const size = sizes[index % sizes.length] ?? 85;
       const x = width * 0.1 + Math.random() * width * 0.8;
       const y = height - size / 2 - 10;
 
@@ -223,7 +236,8 @@ const AwardsMatter = () => {
     >
       {ready &&
         randomizedAwards.map((award, index) => {
-          const size = awardSizes[index % awardSizes.length] ?? 85;
+          const sizes = screenSize <= 1100 ? mobileAwardSizes : awardSizes;
+          const size = sizes[index % sizes.length] ?? 85;
 
           return (
             <motion.div

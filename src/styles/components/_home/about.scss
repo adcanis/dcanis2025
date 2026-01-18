@@ -10,4 +10,28 @@
     background: $background-dark;
     z-index: 1;
   }
+  .mobile-about-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100dvh;
+    background: $background-dark;
+    color: $text-light;
+    & p {
+      width: 90% !important;
+      margin: 0 !important;
+      margin-left: 20px !important;
+    }
+    .about-slider {
+      display: flex;
+      flex-direction: column;
+      color: $text-light;
+      margin-top: -200px;
+      & p {
+        font-size: 7em;
+      }
+    }
+  }
 }

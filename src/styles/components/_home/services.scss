@@ -4,6 +4,26 @@
   width: 100%;
   background: $background-dark;
   z-index: 0;
+  .mobile-services-intro-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: $background-light;
+    padding-top: 100px;
+    h1 {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      margin-left: 25px;
+      font-family: $font-heavy;
+      font-size: 1em;
+      line-height: 0.95em;
+      & span {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
   .content {
     display: flex;
     flex-direction: column;

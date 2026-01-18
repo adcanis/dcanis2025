@@ -29,6 +29,9 @@
       justify-content: center;
       width: 80%;
       min-height: 88dvh;
+      @media (max-width: $layout-breakpoint-xsmall) {
+        padding-top: 100px;
+      }
       .section-title {
         display: flex;
         align-items: center;
@@ -47,6 +50,11 @@
         width: 100%;
         gap: 5rem;
         margin-top: 10vh;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          flex-direction: column;
+          align-items: center;
+          gap: 3rem;
+        }
         .summary-item {
           display: flex;
           flex-direction: column;
@@ -57,10 +65,28 @@
             font-size: 7em;
             font-family: $font-heavy;
             margin: 0;
+            @media (max-width: $layout-breakpoint-xxlarge) {
+              font-size: 10em;
+            }
+            @media (max-width: $layout-breakpoint-large) {
+              font-size: 7em;
+            }
+            @media (max-width: $layout-breakpoint-medium) {
+              font-size: 6em;
+            }
+            @media (max-width: $layout-breakpoint-xsmall) {
+              font-size: 5em;
+            }
           }
           p {
             font-size: 1.5rem;
             margin: 0;
+            @media (max-width: $layout-breakpoint-medium) {
+              font-size: 1.15em;
+            }
+            @media (max-width: $layout-breakpoint-xsmall) {
+              font-size: 1em;
+            }
           }
         }
       }

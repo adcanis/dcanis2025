@@ -34,10 +34,22 @@
         min-height: 256px;
         gap: 2rem;
         padding: 2rem 0;
+        @media (max-width: $layout-breakpoint-xsmall) {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
+          gap: 1rem;
+        }
         & p {
           font-size: 1.5rem;
           line-height: 2rem;
           margin: 0;
+          @media (max-width: $layout-breakpoint-small) {
+            font-size: 1.33rem;
+          }
+          @media (max-width: $layout-breakpoint-xsmall) {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+          }
         }
         & h4 {
           margin: 12px 0;
@@ -47,6 +59,9 @@
           margin: 0;
           font-weight: 900;
           font-style: $font-heavy;
+          @media (max-width: $layout-breakpoint-small) {
+            font-size: 2em;
+          }
         }
       }
     }

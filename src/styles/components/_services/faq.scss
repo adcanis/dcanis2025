@@ -78,6 +78,13 @@
               align-items: center;
               font-size: 2.5em;
               margin: 0;
+              @media (max-width: $layout-breakpoint-medium) {
+                font-size: 2em;
+              }
+              @media (max-width: $layout-breakpoint-xsmall) {
+                font-size: 1.25em;
+                width: 90%;
+              }
               & span {
                 margin-right: 10px;
               }
@@ -85,13 +92,17 @@
             & span {
               display: flex;
               align-items: center;
-              font-size: 2em;
+              font-size: 1.25em;
             }
           }
           .faq-answer {
             font-size: 1.5em;
             width: 60%;
             color: $grey-light;
+            @media (max-width: $layout-breakpoint-xsmall) {
+              width: 100%;
+              font-size: 1em;
+            }
           }
         }
       }
