@@ -14,7 +14,7 @@ export const AppContext = React.createContext<{
 
 export default function App({ Component, pageProps }: AppProps) {
   const [lenis, setLenis] = React.useState<Lenis | null>(null);
-  const [screenSize, setScreenSize] = React.useState<number>(window.innerWidth);
+  const [screenSize, setScreenSize] = React.useState<number>();
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   const raf = React.useCallback(
@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
       lenis?.raf(time);
       requestAnimationFrame(raf);
     },
-    [lenis],
+    [lenis]
   );
 
   React.useEffect(() => {
@@ -42,13 +42,13 @@ export default function App({ Component, pageProps }: AppProps) {
     if (!lenis) {
       setLenis(
         new Lenis({
-          lerp: screenSize >= 768 ? 0.015 : 0.1,
+          lerp: screenSize && screenSize >= 768 ? 0.015 : 1,
           wheelMultiplier: 0.4,
-          touchMultiplier: 0.6,
+          touchMultiplier: 1.25,
           syncTouch: true,
           smoothWheel: true,
           duration: 3.5,
-        }),
+        })
       );
     }
 
