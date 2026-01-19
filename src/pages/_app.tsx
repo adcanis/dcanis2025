@@ -44,7 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
         new Lenis({
           lerp: screenSize && screenSize >= 768 ? 0.015 : 1,
           wheelMultiplier: 0.4,
-          touchMultiplier: 1.25,
+          touchMultiplier: 1.5,
           syncTouch: true,
           smoothWheel: true,
           duration: 3.5,

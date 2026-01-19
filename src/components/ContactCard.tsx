@@ -87,14 +87,14 @@ const ContactCard = () => {
             >
               hey@adcanis.com
             </Link>
-            <Link
+            {/* <Link
               href="tel:5197183175"
               className="btn-black"
               target="_blank"
               rel="noopener noreferrer"
             >
               +1 519 718 3175
-            </Link>
+            </Link> */}
           </div>
         </motion.div>
       </motion.div>
