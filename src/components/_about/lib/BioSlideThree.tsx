@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import BioTwo from "@/assets/cap-strat.png";
+import BioTwo from "@/assets/about-2.jpg";
 
 const BioSlideThree = () => {
   return (
