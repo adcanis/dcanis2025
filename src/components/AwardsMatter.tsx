@@ -14,13 +14,20 @@ import { AwardsData } from "@/lib/AwardsData";
 const awardSizes = [124, 156, 200, 224, 256];
 const mobileAwardSizes = [64, 80, 96, 112, 128];
 
+// Expand awards by count, then shuffle
 const getRandomizedAwards = () => {
-  const shuffled = [...AwardsData];
-  for (let i = shuffled.length - 1; i > 0; i--) {
+  const expanded: typeof AwardsData = [];
+  AwardsData.forEach((award) => {
+    for (let i = 0; i < award.count; i++) {
+      expanded.push({ ...award, _instance: i });
+    }
+  });
+  // Shuffle
+  for (let i = expanded.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    [expanded[i], expanded[j]] = [expanded[j], expanded[i]];
   }
-  return shuffled;
+  return expanded;
 };
 
 const AwardsMatter = () => {
@@ -39,9 +46,7 @@ const AwardsMatter = () => {
 
   const [ready, setReady] = React.useState(false);
   const [inView, setInView] = React.useState(false);
-  const [awardRefs] = React.useState<(HTMLDivElement | null)[]>(
-    new Array(AwardsData.length).fill(null),
-  );
+  const [awardRefs] = React.useState<(HTMLDivElement | null)[]>([]);
 
   React.useEffect(() => {
     const updateSize = () => {
@@ -238,10 +243,9 @@ const AwardsMatter = () => {
         randomizedAwards.map((award, index) => {
           const sizes = screenSize <= 1100 ? mobileAwardSizes : awardSizes;
           const size = sizes[index % sizes.length] ?? 85;
-
           return (
             <motion.div
-              key={`award-${award.id}-${index}`}
+              key={`award-${award.id}-${award._instance ?? 0}-${index}`}
               className="award-icon"
               id={award.name.trim().toLowerCase().replace(/\s+/g, "-")}
               ref={(el) => {

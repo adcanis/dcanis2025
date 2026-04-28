@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
       lenis?.raf(time);
       requestAnimationFrame(raf);
     },
-    [lenis]
+    [lenis],
   );
 
   React.useEffect(() => {
@@ -42,13 +42,13 @@ export default function App({ Component, pageProps }: AppProps) {
     if (!lenis) {
       setLenis(
         new Lenis({
-          lerp: screenSize && screenSize >= 768 ? 0.015 : 1,
-          wheelMultiplier: 0.4,
+          lerp: screenSize && screenSize >= 768 ? 0.08 : 1,
+          wheelMultiplier: 0.7,
           touchMultiplier: 1.5,
           syncTouch: true,
           smoothWheel: true,
-          duration: 3.5,
-        })
+          duration: 2.0,
+        }),
       );
     }
 

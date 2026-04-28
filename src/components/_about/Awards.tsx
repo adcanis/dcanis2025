@@ -1,8 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import { useScroll, useTransform, motion } from "framer-motion";
 import ScrollText from "../text-effects/ScrollText";
-import { AwardsData } from "@/lib/AwardsData";
 import * as MdICons from "react-icons/md";
 import AwardsMatter from "../AwardsMatter";
 
