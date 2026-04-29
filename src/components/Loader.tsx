@@ -9,6 +9,7 @@ type LoadingProps = {
 };
 
 const Loader = ({ setIsLoading }: LoadingProps) => {
+  const hasExitedRef = React.useRef(false);
   const loaderRef = React.useRef<HTMLDivElement>(null);
   const animWrapRef = React.useRef<HTMLDivElement>(null);
   const lottieRef = React.useRef<LottieRefCurrentProps>(null);
@@ -20,6 +21,9 @@ const Loader = ({ setIsLoading }: LoadingProps) => {
   }, []);
 
   const runExit = React.useCallback(() => {
+    if (hasExitedRef.current) return;
+    hasExitedRef.current = true;
+
     if (!loaderRef.current) {
       setIsLoading(false);
       return;
