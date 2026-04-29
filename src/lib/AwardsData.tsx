@@ -12,6 +12,7 @@ export const AwardsData = [
     icon: AwwwardsLogo.src,
     count: 0,
     background: "#2aa9c9",
+    _instance: 0,
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ export const AwardsData = [
     icon: CSSDALogo.src,
     count: 0,
     background: "#f2a65a",
+    _instance: 0,
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ export const AwardsData = [
     icon: OrpetronLogo.src,
     count: 3,
     background: "#6b7fd7",
+    _instance: 0,
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ export const AwardsData = [
     icon: TDKLogo.src,
     count: 2,
     background: "#8fbf4d",
+    _instance: 0,
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ export const AwardsData = [
     icon: WWWACLogo.src,
     count: 0,
     background: "#c57dff",
+    _instance: 0,
   },
   {
     id: 6,
@@ -47,5 +52,6 @@ export const AwardsData = [
     icon: FWALogo.src,
     count: 0,
     background: "#a69f8d",
+    _instance: 0,
   },
 ];
